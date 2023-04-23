@@ -1,0 +1,55 @@
+
+.container{
+    margin-top: 50px;
+    width: 600px;
+    height:620px;
+    background-color: #E0DDCA;
+    border-radius: 20px;
+    padding: 25px 30px;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.form-control{
+    
+    width: 250px ;
+}
+.form-label{
+    padding-left: 10px;
+    margin: 0px;
+    margin-top: 15px;
+
+}
+.form-checkbox{
+    margin-top: 25px;
+
+
+}
+.container button{
+    width:220px;
+    height:40px;
+    border:none;
+    border-radius: 5px;
+    background-color: #F6F8E2;
+    color: black;
+    margin-top: 20px;   
+    text-align: center;
+    font-weight: bold;
+
+}
+ 
+
+
+ h3{
+    margin-top: 30px;
+}
+.gender-category{
+    margin:10px 0;
+    color:black;
+}
+.gender-category label{
+    padding: 0 20px 0 5px;
+}
+
