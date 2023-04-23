@@ -1,6 +1,6 @@
 [
   {
-    "context": ["/customers", "/customer"],
+    "context": ["/customers", "/customer", "biscottis"],
     "target": "http://localhost:3002",
     "secure": true,
     "changeOrigin": true,
