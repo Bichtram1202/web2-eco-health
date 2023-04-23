@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { BestSellingProductsComponent } from './best-selling-products/best-selling-products.component';
 import { BestSellerComponent } from './best-seller/best-seller.component';
 import { BiscottiComponent } from './biscotti/biscotti.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'best-selling-products', component: BestSellingProductsComponent },
   { path: 'best-seller', component: BestSellerComponent },
   { path: 'biscotti', component: BiscottiComponent },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({

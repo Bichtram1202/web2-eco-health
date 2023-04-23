@@ -20,6 +20,10 @@ import { BestSellingProductsComponent } from './best-selling-products/best-selli
 import { BiscottiComponent } from './biscotti/biscotti.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MenuComponent } from './menu/menu.component';
+import { OrdersuccessComponent } from './ordersuccess/ordersuccess.component';
+import { UserComponent } from './user/user.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { MenuComponent } from './menu/menu.component';
     BiscottiComponent,
     CarouselComponent,
     MenuComponent,
+    OrdersuccessComponent,
+    UserComponent,
+    OrderdetailComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
