@@ -1,7 +1,7 @@
 [
   {
-    "context": ["/cus", "/book", "/login"],
-    "target": "http://localhost:3000",
+    "context": ["/customers", "/customer"],
+    "target": "http://localhost:3002",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"

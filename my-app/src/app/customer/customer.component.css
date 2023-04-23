@@ -1,0 +1,32 @@
+.icongroup {
+  width: 80px;
+}
+.group {
+  display: flex;
+  padding: 30px;
+}
+.color-green {
+  color: rgb(163 207 108);
+}
+.tablecustomer th,
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+.tablecustomer tr:hover {
+  background-color: rgb(163 207 108);
+}
+.box-status {
+  border-radius: 12px;
+  background: rgba(156, 205, 98, 0.3);
+}
+.iconsearch {
+  width: 22px;
+}
+/* .material-icons {
+  background-color: white;
+  background-image: url("../../assets/search.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+} */

@@ -1,0 +1,91 @@
+<h3>Khách hàng / Chi tiết</h3>
+<p>Xin chào, Hồng Ngọc! Mừng bạn quay trở lại Admin Web</p>
+<div class="group">
+  <div class="group">
+    <div>
+      <img src="../../assets/customericongroup.png" alt="" class="icongroup" />
+    </div>
+    <div>
+      <p>Tổng khách hàng</p>
+      <!-- <p>{{ customers.CustomerId }}</p> -->
+    </div>
+  </div>
+  <div class="group">
+    <div>
+      <img src="../../assets/customericongroup1.png" alt="" class="icongroup" />
+    </div>
+    <div>
+      <p>Khách hàng mới</p>
+    </div>
+  </div>
+  <div class="group">
+    <div>
+      <img src="../../assets/customericongroup2.png" alt="" class="icongroup" />
+    </div>
+    <div>
+      <p>Đang hoạt động</p>
+    </div>
+  </div>
+</div>
+<div>
+  <table>
+    <tr>
+      <td>Mã Khách Hàng:</td>
+      <td>{{ customer.CustomerId }}</td>
+    </tr>
+    <tr>
+      <td>Tên:</td>
+      <td>{{ customer.CustomerName }}</td>
+    </tr>
+    <tr>
+      <td>Giới tính:</td>
+      <td>{{ customer.Gender }}</td>
+    </tr>
+    <tr>
+      <td>SĐT:</td>
+      <td>{{ customer.NumberPhone }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>{{ customer.Email }}</td>
+    </tr>
+    <tr>
+      <td>Địa chỉ:</td>
+      <td>{{ customer.Address }}</td>
+    </tr>
+  </table>
+</div>
+<div>
+  <form
+    action=""
+    method="post"
+    [formGroup]="customerEdit"
+    (submit)="onSubmit()"
+  >
+    <div>
+      <label for="id">Mã Khách Hàng:</label>
+      <input type="text" formControlName="CustomerId" />
+    </div>
+    <div>
+      <label for="id">Tên:</label>
+      <input type="text" formControlName="CustomerName" />
+    </div>
+    <div>
+      <label for="id">Giới Tính:</label>
+      <input type="text" formControlName="Gender" />
+    </div>
+    <div>
+      <label for="id">SĐT:</label>
+      <input type="text" formControlName="NumberPhone" />
+    </div>
+    <div>
+      <label for="id">Email:</label>
+      <input type="text" formControlName="Email" />
+    </div>
+    <div>
+      <label for="id">Địa chỉ:</label>
+      <input type="text" formControlName="Address" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>

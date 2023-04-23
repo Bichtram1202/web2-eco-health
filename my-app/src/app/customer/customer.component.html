@@ -1,0 +1,90 @@
+<h3>Khách hàng</h3>
+<p>Xin chào, Hồng Ngọc! Mừng bạn quay trở lại Admin Web</p>
+<div class="group">
+  <div class="group">
+    <div>
+      <img src="../../assets/customericongroup.png" alt="" class="icongroup" />
+    </div>
+    <div>
+      <p>Tổng khách hàng</p>
+      <!-- <p>{{ customers.CustomerId }}</p> -->
+    </div>
+  </div>
+  <div class="group">
+    <div>
+      <img src="../../assets/customericongroup1.png" alt="" class="icongroup" />
+    </div>
+    <div>
+      <p>Khách hàng mới</p>
+    </div>
+  </div>
+  <div class="group">
+    <div>
+      <img src="../../assets/customericongroup2.png" alt="" class="icongroup" />
+    </div>
+    <div>
+      <p>Đang hoạt động</p>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="group">
+    <div>
+      <h3><b>Danh sách khách hàng</b></h3>
+      <h5 class="color-green">Tài khoản đang hoạt động</h5>
+      {{ errMessage }}
+    </div>
+    <div class="group search-sort">
+      <div>
+        <img class="iconsearch" src="../../assets/search .png" alt="" />
+        <input type="search" [(ngModel)]="searchText" placeholder="Search" /><i
+          class="material-icons"
+        ></i>
+      </div>
+      <div (click)="sort('CustomerId')">
+        <div>
+          Sort by: CustomerId
+          <img class="iconsearch" src="../../assets/sortby.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table mat-table class="tablecustomer">
+    <tr>
+      <td>Mã khách hàng</td>
+      <td>Tên khách hàng</td>
+      <td>Số điện thoại</td>
+      <td>Email</td>
+      <td>Địa chỉ</td>
+      <td>Tình trạng</td>
+    </tr>
+    <tbody>
+      <tr
+        *ngFor="
+          let cus of customers
+            | filter : searchText
+            | orderBy : key : reverse
+            | paginate : { itemsPerPage: 5, currentPage: p }
+        "
+      >
+        <td>{{ cus.CustomerId }}</td>
+        <td>{{ cus.CustomerName }}</td>
+        <td>{{ cus.NumberPhone }}</td>
+        <td>{{ cus.Email }}</td>
+        <td>{{ cus.Address }}</td>
+        <td class="box-status">{{ cus.Status }}</td>
+        <td>
+          <a routerLink="/customer/{{ cus._id }}"
+            ><img
+              src="../../assets/icon-detail.png"
+              width="50px"
+              height="50px"
+              alt=""
+          /></a>
+        </td>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>
+</div>
