@@ -1,0 +1,215 @@
+<p>register works!</p>
+<div class="container">
+  <h3 align="center">ĐĂNG KÍ</h3>
+  <form (submit)="onsubmit()" [formGroup]="registerForm">
+    <div class="main">
+      <!-- Họ và tên đệm -->
+      <div class="form-group">
+        <label for="name" class="form-label">Họ và tên đệm:</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submitted && registerForm.controls['firstname'].errors
+          }"
+          formControlName="firstname"
+          type="text"
+          class="form-control"
+          placeholder="Nhập Họ và tên đệm"
+        />
+        <div
+          *ngIf="submitted && registerForm.controls['firstname'].errors"
+          class="text-danger"
+        >
+          <div
+            *ngIf="
+              submitted && registerForm.controls['firstname'].errors['required']
+            "
+          >
+            Bạn chưa nhập Họ và tên đệm
+          </div>
+        </div>
+      </div>
+      <!-- Tên -->
+      <div class="form-group">
+        <label for="name" class="form-label">Tên:</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submitted && registerForm.controls['name'].errors
+          }"
+          formControlName="name"
+          type="text"
+          class="form-control"
+          placeholder="Nhập Tên"
+        />
+        <div
+          *ngIf="submitted && registerForm.controls['name'].errors"
+          class="text-danger"
+        >
+          <div
+            *ngIf="
+              submitted && registerForm.controls['name'].errors['required']
+            "
+          >
+            Bạn chưa nhập tên
+          </div>
+          <div
+            *ngIf="
+              submitted && registerForm.controls['name'].errors['minlength']
+            "
+          >
+            Độ dài tên ít nhất 3 ký tự
+          </div>
+          <div
+            *ngIf="submitted && registerForm.controls['name'].errors?.['nameNotMatch']"
+          >
+            Tên không được chứa ký tự đặc biệt
+          </div>
+        </div>
+      </div>
+      <!-- Ngày tháng năm sinh -->
+      <div class="form-group">
+        <label for="DOB" class="form-label">Ngày sinh:</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submitted && registerForm.controls['DOB'].errors
+          }"
+          formControlName="DOB"
+          type="text"
+          placeholder="Nhập Ngày sinh"
+          class="form-control"
+        />
+        <div
+          *ngIf="submitted && registerForm.controls['DOB'].errors"
+          class="text-danger"
+        >
+          <div
+            *ngIf="submitted && registerForm.controls['DOB'].errors['required']"
+          >
+            Bạn chưa nhập ngày sinh
+          </div>
+        </div>
+      </div>
+      <!-- Gender -->
+      <div class="form-group">
+        <label for="text" class="form-label">Giới tính:</label>
+        <div class="gender-category">
+          <input type="radio" name="gender" id="male" class="form-radio" />
+          <label for="male">Nam</label>
+          <input type="radio" name="gender" id="female" class="form-radio" />
+          <label for="male">Nữ</label>
+        </div>
+      </div>
+      <!-- phone -->
+      <div class="form-group">
+        <label for="phone" class="form-label">Số điện thoại:</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submitted && registerForm.controls['phone'].errors
+          }"
+          formControlName="phone"
+          type="text"
+          placeholder="Nhập số điện thoại"
+          class="form-control"
+        />
+        <div
+          *ngIf="submitted && registerForm.controls['phone'].errors"
+          class="text-danger"
+        >
+          <div
+            *ngIf="
+              submitted && registerForm.controls['phone'].errors['required']
+            "
+          >
+            Bạn chưa nhập số điện thoại
+          </div>
+          <div
+            *ngIf="
+              submitted && registerForm.controls['phone'].errors['maxlength']
+            "
+          >
+            Số điện thoại tối đa 10 số
+          </div>
+        </div>
+      </div>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submitted && registerForm.controls['email'].errors
+          }"
+          formControlName="email"
+          type="email"
+          placeholder="Nhập Email"
+          class="form-control"
+        />
+        <div
+          *ngIf="submitted && registerForm.controls['email'].errors"
+          class="text-danger"
+        >
+          <div
+            *ngIf="
+              submitted && registerForm.controls['email'].errors['required']
+            "
+          >
+            Bạn chưa nhập Email
+          </div>
+          <div
+            *ngIf="submitted && registerForm.controls['email'].errors['email']"
+          >
+            Email không hợp lệ
+          </div>
+        </div>
+      </div>
+      <!-- Mật khẩu -->
+      <div class="form-group">
+        <label for="password" class="form-label">Mật khẩu:</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submitted && registerForm.controls['password'].errors
+          }"
+          formControlName="password"
+          type="password"
+          placeholder="Nhập Mật khẩu"
+          class="form-control"
+        />
+        <div
+          *ngIf="submitted && registerForm.controls['password'].errors"
+          class="text-danger"
+        >
+          <div
+            *ngIf="
+              submitted && registerForm.controls['password'].errors['required']
+            "
+          >
+            Vui lòng nhập password
+          </div>
+          <div
+            *ngIf="
+              submitted && registerForm.controls['password'].errors['minlength']
+            "
+          >
+            Password chứa ít nhất 8 kí tự
+          </div>
+        </div>
+      </div>
+      <!-- Nhập lại mật khẩu -->
+      <div class="form-group">
+        <label for="repassword" class="form-label">Nhập lại mật khẩu:</label>
+        <input
+          type="password"
+          placeholder="Vui lòng Nhập lại Mật khẩu"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <input type="checkbox" class="form-checkbox" />
+        <label for="Dieukhoan"
+          >Chấp nhận Điều khoản và Chính Sách của Ecoheal:</label
+        >
+      </div>
+    </div>
+    <div align="center">
+      <button>ĐĂNG KÝ</button>
+    </div>
+  </form>
+</div>

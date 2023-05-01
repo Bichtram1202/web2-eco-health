@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
@@ -8,7 +10,7 @@ import { BestSellingProductsComponent } from './best-selling-products/best-selli
 import { BestSellerComponent } from './best-seller/best-seller.component';
 import { BiscottiComponent } from './biscotti/biscotti.component';
 import { PageMenuComponent } from './page-menu/page-menu.component';
-import { ProductSliderComponent } from './product-slider/product-slider.component';
+
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -18,10 +20,7 @@ const routes: Routes = [
   { path: 'best-selling-products', component: BestSellingProductsComponent },
   { path: 'best-seller', component: BestSellerComponent },
   { path: 'biscotti', component: BiscottiComponent },
-  {path: 'page-menu',component: PageMenuComponent},
-  {path :'product-slider',component:ProductSliderComponent},
-
-
+   {path: 'page-menu', component: PageMenuComponent}
 ];
 
 @NgModule({
@@ -38,5 +37,5 @@ export const RoutingComponent = [
   BestSellerComponent,
   BiscottiComponent,
   PageMenuComponent,
-  ProductSliderComponent
+ 
 ];

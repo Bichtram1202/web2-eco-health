@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,33 +14,12 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { PageMenuComponent } from './page-menu/page-menu.component';
-import { MenuComponent } from './menu/menu.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { BestSellingProductsComponent } from './best-selling-products/best-selling-products.component';
-import { BestSellerComponent } from './best-seller/best-seller.component';
-import { BiscottiComponent } from './biscotti/biscotti.component';
-import { PrevDirective } from './prev.directive';
-import { NextDirective } from './next.directive';
-
-import { ProductSliderComponent } from './product-slider/product-slider.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
     RoutingComponent,
     CustomerComponent,
     CustomerDetailComponent,
-    PageMenuComponent,
-    CarouselComponent,
-     BestSellingProductsComponent,
-     BestSellerComponent,
-     BiscottiComponent,
-     PrevDirective,
-     NextDirective,
-     ProductSliderComponent
-
   ],
   imports: [
     BrowserModule,

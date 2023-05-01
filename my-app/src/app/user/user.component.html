@@ -1,0 +1,14 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+      <br>
+      <div class="col-4 text-center" *ngFor="let item of users()">
+          <h2 >{{item.FullName}}</h2>
+          <hr>
+          <img  style="height: 100px;" src="assets/images/{{item.ImageUrl}}">
+          <br>
+          <button class="btn btn-info mt-3" routerLink="/orderdetail/{{item.id}}">Lịch sử mua hàng</button>
+      </div>
+  </div>
+
+</div>
