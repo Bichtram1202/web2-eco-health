@@ -1,0 +1,42 @@
+/* @import '~flickity/dist/flickity.min.css';
+
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: sans-serif;
+}
+.carousel{
+  background: rebeccapurple;
+
+}
+.carousel-cell{
+  width: 25%;
+  height: 200px;
+  background: #8c8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+.carousel-cell.is-selected {
+  background: red;
+} */
+.product-item {
+  margin: 20px;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.product-item img {
+  max-width: 100%;
+}
+
+.product-details {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -28,7 +28,7 @@ client.connect();
 database = client.db("EcohealData");
 
 // connect to collection
-customerCollection = database.collection("Customer");
+// customerCollection = database.collection("Customer");
 biscottiCollection = database.collection("Biscotti");
 
 app.get("/biscottis", cors(), async (_req, res) => {
@@ -36,38 +36,38 @@ app.get("/biscottis", cors(), async (_req, res) => {
   res.send(result);
 });
 
-app.get("/customers", cors(), async (req, res) => {
-  const result = await customerCollection.find({}).toArray();
-  res.send(result);
-});
+// app.get("/customers", cors(), async (req, res) => {
+//   const result = await customerCollection.find({}).toArray();
+//   res.send(result);
+// });
 
-app.get("/customer/:id", cors(), async (req, res) => {
-  var o_id = new ObjectId(req.params["id"]);
-  const result = await customerCollection.find({ _id: o_id }).toArray();
-  res.send(result[0]);
-});
+// app.get("/customer/:id", cors(), async (req, res) => {
+//   var o_id = new ObjectId(req.params["id"]);
+//   const result = await customerCollection.find({ _id: o_id }).toArray();
+//   res.send(result[0]);
+// });
 
-app.post("/customer", cors(), async (req, res) => {
-  await customerCollection.insertOne(req.body);
-  res.send(req.body);
-});
+// app.post("/customer", cors(), async (req, res) => {
+//   await customerCollection.insertOne(req.body);
+//   res.send(req.body);
+// });
 
-app.put("/customer", cors(), async (req, res) => {
-  await customerCollection.updateOne(
-    { _id: new ObjectId(req.body._id) },
-    {
-      $set: {
-        CustomerName: req.body.CustomerName,
-        CustomerId: req.body.CustomerId,
-        Address: req.body.Address,
-        NumberPhone: req.body.NumberPhone,
-        Email: req.body.Email,
-        Gender: req.body.Gender,
-        Status: req.body.Status,
-      },
-    }
-  );
-  var o_id = new ObjectId(req.body._id);
-  const result = await customerCollection.find({ _id: o_id }).toArray();
-  res.send(result[0]);
-});
+// app.put("/customer", cors(), async (req, res) => {
+//   await customerCollection.updateOne(
+//     { _id: new ObjectId(req.body._id) },
+//     {
+//       $set: {
+//         CustomerName: req.body.CustomerName,
+//         CustomerId: req.body.CustomerId,
+//         Address: req.body.Address,
+//         NumberPhone: req.body.NumberPhone,
+//         Email: req.body.Email,
+//         Gender: req.body.Gender,
+//         Status: req.body.Status,
+//       },
+//     }
+//   );
+//   var o_id = new ObjectId(req.body._id);
+//   const result = await customerCollection.find({ _id: o_id }).toArray();
+//   res.send(result[0]);
+// });
