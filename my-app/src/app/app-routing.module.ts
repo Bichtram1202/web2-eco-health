@@ -8,6 +8,8 @@ import { BestSellingProductsComponent } from './best-selling-products/best-selli
 import { BestSellerComponent } from './best-seller/best-seller.component';
 import { BiscottiComponent } from './biscotti/biscotti.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'best-seller', component: BestSellerComponent },
   { path: 'biscotti', component: BiscottiComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'adminproducts', component: AdminProductsComponent },
+  { path: 'product/:id', component: AdminProductDetailComponent },
 ];
 
 @NgModule({
@@ -33,4 +37,6 @@ export const RoutingComponent = [
   BestSellingProductsComponent,
   BestSellerComponent,
   BiscottiComponent,
+  AdminProductsComponent,
+  AdminProductDetailComponent,
 ];

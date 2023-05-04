@@ -17,7 +17,7 @@ const cors = require("cors");
 app.use(cors());
 
 app.get("/", (_req, res) => {
-  res.send("Hello Restful API");
+  res.send("This Web server is processed for MongoDB");
 });
 app.listen(port, () => {
   console.log(`My Server listening on port ${port}`);
@@ -30,13 +30,15 @@ database = client.db("EcohealData");
 // connect to collection
 customerCollection = database.collection("Customer");
 biscottiCollection = database.collection("Biscotti");
+productsCollection = database.collection("Products");
 
 app.get("/biscottis", cors(), async (_req, res) => {
   const result = await biscottiCollection.find({}).toArray();
   res.send(result);
 });
 
-app.get("/customers", cors(), async (req, res) => {
+//CUTSOMER
+app.get("/customers", cors(), async (_req, res) => {
   const result = await customerCollection.find({}).toArray();
   res.send(result);
 });
@@ -58,7 +60,6 @@ app.put("/customer", cors(), async (req, res) => {
     {
       $set: {
         CustomerName: req.body.CustomerName,
-        CustomerId: req.body.CustomerId,
         Address: req.body.Address,
         NumberPhone: req.body.NumberPhone,
         Email: req.body.Email,
@@ -69,5 +70,47 @@ app.put("/customer", cors(), async (req, res) => {
   );
   var o_id = new ObjectId(req.body._id);
   const result = await customerCollection.find({ _id: o_id }).toArray();
+  res.send(result[0]);
+});
+
+//PRODUCT
+app.get("/products", cors(), async (_req, res) => {
+  const result = await productsCollection.find({}).toArray();
+  res.send(result);
+});
+app.get("/product/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await productsCollection.find({ _id: o_id }).toArray();
+  res.send(result[0]);
+});
+
+app.post("/product", cors(), async (req, res) => {
+  await productsCollection.insertOne(req.body);
+  console.log("req: ", req.body);
+  res.send(req.body);
+});
+
+app.put("/product", cors(), async (req, res) => {
+  await productsCollection.updateOne(
+    { _id: new ObjectId(req.body._id) },
+    {
+      $set: {
+        name: req.body.name,
+        type: req.body.type,
+        describe: req.body.describe,
+        price: req.body.price,
+        sold: req.body.sold,
+        img_url: req.body.img_url,
+      },
+    }
+  );
+  var o_id = new ObjectId(req.body._id);
+  const result = await productsCollection.find({ _id: o_id }).toArray();
+  res.send(result[0]);
+});
+app.delete("/product/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await productsCollection.find({ _id: o_id }).toArray();
+  await productsCollection.deleteOne({ _id: o_id });
   res.send(result[0]);
 });

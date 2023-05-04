@@ -3,7 +3,7 @@
 }
 .group {
   display: flex;
-  padding: 30px;
+  padding: 30px 15px 0px 0px;
 }
 .color-green {
   color: rgb(163 207 108);
@@ -16,17 +16,26 @@ td {
 .tablecustomer tr:hover {
   background-color: rgb(163 207 108);
 }
-.box-status {
+.box-status-active {
   border-radius: 12px;
   background: rgba(156, 205, 98, 0.3);
+  color: rgb(0 135 103);
+}
+.box-status-inactive {
+  border-radius: 12px;
+  background: rgba(223, 4, 4, 0.3);
+  color: rgb(223 4 4);
+}
+td .box-status {
+  padding: 5px;
 }
 .iconsearch {
   width: 22px;
 }
-/* .material-icons {
-  background-color: white;
-  background-image: url("../../assets/search.png");
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding-left: 40px;
-} */
+.search-sort {
+  margin: 20px 0 0 200px;
+}
+
+.status {
+  padding: 10px 20px;
+}

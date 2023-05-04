@@ -1,0 +1,125 @@
+<div class="py-6 px-9">
+  <h3>Sản phẩm / Cập nhật</h3>
+  <p>Xin chào, bạn! Mừng bạn quay trở lại Admin Web</p>
+  <h4>{{ myProduct?.name }}</h4>
+  <div>
+    <form
+      action=""
+      method="post"
+      [formGroup]="productEdit"
+      (submit)="onSubmit()"
+    >
+      <div>
+        <table class="w-full">
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Mã Sản Phẩm:</label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="id"
+                [readOnly]="!isCreate"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id"
+                >Tên Sản Phẩm:
+              </label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Loại:</label>
+            </td>
+            <td class="max-w-full">
+              <select name="type" id="type" formControlName="type">
+                <option value="granola">Granola</option>
+                <option value="boankieng">Bơ ăn kiêng</option>
+                <option value="hatngucoc">Hạt ngũ cốc</option>
+                <option value="biscotti">Biscotti</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Mô tả:</label>
+            </td>
+            <td class="max-w-full">
+              <textarea
+                [rows]="5"
+                class="input-customerdetail"
+                type="text"
+                formControlName="describe"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Giá:</label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="price"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Số lượng:</label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="sold"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id"
+                >Chọn hình ảnh:</label
+              >
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="file"
+                formControlName="img_url"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="group-button mt-6">
+        <div class="padding-10-40">
+          <button
+            class="background-gray rounded w-20 py-2"
+            type="button"
+            (click)="onCancel()"
+          >
+            Hủy
+          </button>
+        </div>
+        <div class="padding-10-40">
+          <button class="background-green rounded w-20 py-2" type="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

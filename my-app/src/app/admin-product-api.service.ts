@@ -5,14 +5,15 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { catchError, map, Observable, retry, throwError } from 'rxjs';
-import { Customer } from './customer/customer';
+import { Product } from './admin-products/product';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CustomerApiService {
+export class AdminProductApiService {
+  [x: string]: any;
   constructor(private _http: HttpClient) {}
-  getCustomers(): Observable<any> {
+  getProducts(): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf-8'
@@ -21,13 +22,13 @@ export class CustomerApiService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/customers', requestOptions).pipe(
-      map((res) => JSON.parse(res) as Array<Customer>),
+    return this._http.get<any>('/products', requestOptions).pipe(
+      map((res) => JSON.parse(res) as Array<Product>),
       retry(3),
       catchError(this.handleError)
     );
   }
-  getCustomer(id: string): Observable<any> {
+  getProduct(id: string): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf-8'
@@ -36,13 +37,13 @@ export class CustomerApiService {
       headers: headers,
       responeType: 'text',
     };
-    return this._http.get<any>('/customer/' + id, requestOptions).pipe(
-      map((res) => res as Customer),
+    return this._http.get<any>('/product/' + id, requestOptions).pipe(
+      map((res) => res as Product),
       retry(3),
       catchError(this.handleError)
     );
   }
-  putCustomer(aCustomer: any, id: any): Observable<any> {
+  putProduct(aProduct: any, id: any): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'application/json;charset=utf-8'
@@ -52,14 +53,31 @@ export class CustomerApiService {
       responeType: 'text',
     };
     return this._http
-      .put<any>('/customer', JSON.stringify(aCustomer), requestOptions)
+      .put<any>('/product', JSON.stringify(aProduct), requestOptions)
       .pipe(
-        map((res) => res as Customer),
+        map((res) => res as Product),
         retry(3),
         catchError(this.handleError)
       );
   }
-
+  postProduct(aProduct: any): Observable<any> {
+    console.log('aProduct: ', aProduct);
+    const headers = new HttpHeaders().set(
+      'Content-Type',
+      'application/json;charset=utf-8'
+    );
+    const requestOptions: Object = {
+      headers: headers,
+      responeType: 'text',
+    };
+    return this._http
+      .post<any>('/product', JSON.stringify(aProduct), requestOptions)
+      .pipe(
+        map((res) => res as Product),
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
   handleError(error: HttpErrorResponse) {
     return throwError(() => new Error(error.message));
   }
