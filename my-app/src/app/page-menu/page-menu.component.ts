@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ProductAPIService } from '../product-api.service';
 
 @Component({
   selector: 'app-page-menu',
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-menu.component.css']
 })
 export class PageMenuComponent {
+
 
   title = 'my-app';
   images = [
@@ -24,13 +26,32 @@ export class PageMenuComponent {
     },
   ];
 
+  ngOnInit(): void {
+    this.getProductList();
+  }
+  getProductList() {
 
-  constructor(private _router: Router) {}
-
+  }
   openListProduct() {
     this._router.navigate(['list.product']);
   }
   onSubmit() {
     this._router.navigateByUrl;
   }
-}
+  type: string='';
+  products:any;
+  errMessage:string='';
+  category: string = ''
+  constructor(public _service: ProductAPIService, private _router: Router, private activatedRoute: ActivatedRoute){
+    this.activatedRoute.queryParams.subscribe(params => {
+      let type = params['type']||'biscotti';
+      this._service.getProductCategories(type).subscribe({
+        next:(data)=>{this.products=data},
+        error:(err)=>{this.errMessage=err}
+      })
+  });
+}}
+
+
+
+

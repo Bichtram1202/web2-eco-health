@@ -26,13 +26,20 @@ const { MongoClient, ObjectId } = require("mongodb");
 client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 database = client.db("EcohealData");
+biscottiCollection = database.collection("Biscotti");
+productCollection = database.collection("Product");
 
 // connect to collection
 // customerCollection = database.collection("Customer");
-biscottiCollection = database.collection("Biscotti");
+
+
 
 app.get("/biscottis", cors(), async (_req, res) => {
   const result = await biscottiCollection.find({}).toArray();
+  res.send(result);
+});
+app.get("/products", cors(), async (_req, res) => {
+  const result = await productCollection.find({}).toArray();
   res.send(result);
 });
 
@@ -71,3 +78,4 @@ app.get("/biscottis", cors(), async (_req, res) => {
 //   const result = await customerCollection.find({ _id: o_id }).toArray();
 //   res.send(result[0]);
 // });
+

@@ -10,7 +10,10 @@ import { BestSellingProductsComponent } from './best-selling-products/best-selli
 import { BestSellerComponent } from './best-seller/best-seller.component';
 import { BiscottiComponent } from './biscotti/biscotti.component';
 import { PageMenuComponent } from './page-menu/page-menu.component';
-
+import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from'./product-list/product-list.component';
+import { SanPhamTheoLoaiComponent} from './san-pham-theo-loai/san-pham-theo-loai.component';
+import { CacLoaiComponent } from './cac-loai/cac-loai.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -20,7 +23,11 @@ const routes: Routes = [
   { path: 'best-selling-products', component: BestSellingProductsComponent },
   { path: 'best-seller', component: BestSellerComponent },
   { path: 'biscotti', component: BiscottiComponent },
-   {path: 'page-menu', component: PageMenuComponent}
+   {path: 'page-menu', component: PageMenuComponent},
+   {path: 'home', component: HomeComponent},
+   {path: 'product-list', component: ProductListComponent},
+   {path:'loai/:id',component: SanPhamTheoLoaiComponent},
+   {path:'cac-loai', component: CacLoaiComponent}
 ];
 
 @NgModule({
@@ -37,5 +44,9 @@ export const RoutingComponent = [
   BestSellerComponent,
   BiscottiComponent,
   PageMenuComponent,
- 
+  HomeComponent,
+  ProductListComponent,
+  SanPhamTheoLoaiComponent,
+  CacLoaiComponent
+
 ];

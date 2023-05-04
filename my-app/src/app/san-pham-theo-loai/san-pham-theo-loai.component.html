@@ -1,0 +1,33 @@
+<!-- <p>san-pham-theo-loai works!</p>
+
+<div>
+  <h2>Choose a biscotti:</h2>
+  <select (change)="onBiscottiSelected($event.target.value)">
+    <option value="">Choose...</option>
+    <option value="almond">Almond</option>
+    <option value="chocolate-chip">Chocolate Chip</option>
+    <<option value="cranberry">Cranberry</option>
+  </select>
+</div>
+<div *ngIf="biscottiProducts">
+  <h2>Biscotti Products:</h2>
+  <ul>
+    <li *ngFor="let product of biscottiProducts">{{product.name}}</li>
+  </ul>
+</div>
+})
+export class BiscottiComponent {
+public biscottiProducts: any[];
+
+constructor(private biscottiService: BiscottiService) {}
+
+onBiscottiSelected(biscotti: string) {
+if (biscotti) {
+  this.biscottiService.getBiscotti().subscribe((data: any[]) => {
+    this.biscottiProducts = data.filter(
+      (product) => product.type === biscotti
+    );
+  });
+  )
+}
+{}; -->

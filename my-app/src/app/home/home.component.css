@@ -1,66 +1,10 @@
+@import '~node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.css';
+@import '~node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.css';
 .product{
   padding: 20px 0;
 }
-.slider-wrap{
-  position: relative;
-}
-.slider-main{
-  position: absolute;
-}
-.item{
-  display: inline-block;
-  width: 300px;
-  height: 150px;
-  background: #753434;
-}
-.text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.box-image-biscotti {
-  height: auto;
-  margin: 0 auto;
-  overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: relative;
-  transition: opacity .3s,transform .3s,background-color .3s;
-
-}
-.rowlist{
-  display:inline-block;
-  margin: 20px;
 
 
-}
-.product-small{
-background-color: #E0DDCA;
-  /* background-color: rgba(182, 182, 182, 0.323); */
-  height: 330px;
-  width: 190px;
-  margin:  0;
-  padding: 0;
-
-
-}
-.text-image-biscotti{
-/* background-color: rgba(125, 123, 123, 0.793); */
-text-align: center;
-color: black;
-font-size: 18px;
-font-family: inherit;
-
-
-}
-.box-image-biscotti{
-
-
-}
-.title-image-biscotti{
-  margin-top: 10px;
-}
 #price-biscotti{
   font-size: 17px;
   border-radius: 9px;
