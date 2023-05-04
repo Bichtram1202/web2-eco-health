@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
+import {AppRoitingModule};
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
@@ -10,6 +12,11 @@ import { BiscottiComponent } from './biscotti/biscotti.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
+import { PageMenuComponent } from './page-menu/page-menu.component';
+import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from'./product-list/product-list.component';
+import { SanPhamTheoLoaiComponent} from './san-pham-theo-loai/san-pham-theo-loai.component';
+import { CacLoaiComponent } from './cac-loai/cac-loai.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -22,6 +29,11 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'adminproducts', component: AdminProductsComponent },
   { path: 'product/:id', component: AdminProductDetailComponent },
+   {path: 'page-menu', component: PageMenuComponent},
+   {path: 'home', component: HomeComponent},
+   {path: 'product-list', component: ProductListComponent},
+   {path:'loai/:id',component: SanPhamTheoLoaiComponent},
+   {path:'cac-loai', component: CacLoaiComponent}
 ];
 
 @NgModule({
@@ -39,4 +51,10 @@ export const RoutingComponent = [
   BiscottiComponent,
   AdminProductsComponent,
   AdminProductDetailComponent,
+  PageMenuComponent,
+  HomeComponent,
+  ProductListComponent,
+  SanPhamTheoLoaiComponent,
+  CacLoaiComponent
+
 ];

@@ -1,0 +1,69 @@
+@import '~node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.css';
+@import '~node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.css';
+.product{
+  padding: 20px 0;
+}
+
+
+#price-biscotti{
+  font-size: 17px;
+  border-radius: 9px;
+  border-style:hidden;
+padding-top: 3px;
+padding-left: 3px;
+margin-top: 15px;
+
+}
+#add-to-cart-button{
+padding-left: 3px;
+padding-right: 3px;
+display:inline-flex;
+margin-top: 15px;
+
+}
+#add-to-cart-button-left {
+
+  border-radius: 8px;
+  border-style:hidden;
+  font-size: 10px;
+  background-color:#77b153 ;
+margin-right: 5px;
+padding-top: 5px;
+padding-bottom: 5px;
+
+}
+.add-to-cart-button-left a:link, a:visited{
+  padding: 3px 3px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+.add-to-cart-button-left a:hover, a:active
+{
+  color: rgb(4, 5, 5);
+
+}
+
+#add-to-cart-button-right{
+  border-radius: 8px;
+  border-style:hidden;
+  background-color:#ACACAC ;
+  font-size: 10px;
+  padding-left: 3px;
+  margin-left: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.add-to-cart-button-right a:link, a:visited{
+  padding: 3px 3px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+
+
+}
+.add-to-cart-button-right a:hover, a:active
+{
+  color: rgb(18, 188, 89);
+
+}

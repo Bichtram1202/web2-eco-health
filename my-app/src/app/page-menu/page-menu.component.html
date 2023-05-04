@@ -1,0 +1,71 @@
+<app-carousel [images]="images"></app-carousel>
+<hr color="black">
+<h2>SẢN PHẨM BÁN CHẠY</h2>
+<app-home></app-home>
+<!-- <app-product-list></app-product-list> -->
+<router-outlet></router-outlet>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="page-menu?type=biscotti" >BISCOTTI</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page-menu?type=granola">GRANOLA</a>
+        </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page-menu?type=boankieng">BƠ ĂN KIÊNG</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="page-menu?type=hatngucoc">HẠT NGŨ CỐC</a>
+  </li>
+
+</ul>
+
+<div class="rowlist" *ngFor="let product of products">
+  <div class="product-small">
+    <div class="box-image-biscotti" >
+
+      <a href="" aria-label="">
+        <!-- ../../assets/products_img/{{product.img_url}} -->
+        <img
+        src="../../assets/products_img/{{product.img_url}}"
+        width="200px"
+          height="200px"/>
+
+      </a>
+
+    </div>
+    <div class="text-image-biscotti">
+        <div class="title-image-biscotti">
+          {{product.name}}
+        </div>
+        <div class="price-biscotti" >
+
+                <button id="price-biscotti">{{product.price}}<span>VND</span>
+              </button>
+
+        </div>
+
+        <div class="add-to-cart-button" id="add-to-cart-button">
+          <div class="add-to-cart-button-left">
+          <button class="add-to-cart-button-left" id="add-to-cart-button-left" style="cursor: pointer;">
+            <a href="" data-quantity="1" class="" rel="nofollow">
+              Mua ngay
+            </a>
+            </button>
+          </div>
+          <div class="add-to-cart-button-right">
+          <button class="add-to-cart-button-right" id="add-to-cart-button-right" style="cursor: pointer;">
+          <a href="" data-quantity="1" class="" rel="nofollow">
+            Thêm vào giỏ hàng
+          </a>
+          </button>
+          </div>
+
+
+        </div>
+    </div>
+  </div>
+
+</div>
+
+
