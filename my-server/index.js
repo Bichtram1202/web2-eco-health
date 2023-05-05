@@ -30,6 +30,8 @@ database = client.db("EcohealData");
 // connect to collection
 customerCollection = database.collection("Customer");
 biscottiCollection = database.collection("Biscotti");
+ProductsCollection = database.collection("Products");
+UsersCollection= database.collection("Users");
 
 app.get("/biscottis", cors(), async (_req, res) => {
   const result = await biscottiCollection.find({}).toArray();
@@ -71,3 +73,45 @@ app.put("/customer", cors(), async (req, res) => {
   const result = await customerCollection.find({ _id: o_id }).toArray();
   res.send(result[0]);
 });
+app.get("/products", cors(), async (_req, res) => {
+  const result = await ProductsCollection.find({}).toArray();
+  res.send(result);
+});
+app.post("/users",cors(),async(req,res)=>{
+  var crypto=require('crypto');
+  salt=crypto.randomBytes(16).toString('hex');
+  usersCollection =database.collection("Users");
+  users=req.body
+
+  hash=crypto.pbkdf2Sync(users.password,salt,1000,64,`sha512`).toString(`hex`);
+
+  users.password=hash
+  users.salt=salt
+
+  await usersCollection.insertOne(users)
+ 
+  res.send(req.body)
+})
+app.post("/login",cors(),async(req,res)=>{
+  CustomerName=req.body.CustomerName
+  password=req.body.password
+
+  var crypto=require('crypto');
+
+  usersCollection=database.collection("Users")
+  users= await usersCollection.findOne({CustomerName:CustomerName})
+  if(users==null)
+  response.send({"CustomerName":CustomerName,"message":"not exist"})
+  else
+  {
+      hash = crypto.pbkdf2Sync(password,users.salt,1000,64,`sha512`).toString(`hex`);
+      if ( users.password==hash)
+      res.send(users)
+      else
+      res.send({"CustomerName":CustomerName,
+                "password":password,
+                "message":"wrong password"})
+  }
+})
+
+
