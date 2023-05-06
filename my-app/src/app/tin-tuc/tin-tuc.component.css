@@ -19,6 +19,11 @@ body, html{
     font-size: 20px;
    
   }
+  .form-control{
+    width:170px;
+    height:30px;
+    border-radius: 5px;
+  }
   
   .sub_right_menu li{
   margin-right: 30px;

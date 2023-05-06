@@ -1,34 +1,33 @@
 
-
   <div class="container">
     <div class="row">
       <h3 align="center">ĐĂNG NHẬP</h3>
-      <form (submit)="onsubmit()" [formGroup]="registerForm">
+      <form action="mongodb://127.0.0.1:27017" (submit)="onsubmit()" [formGroup]="registerForm" method="post">
         <div class="form-group">
-          <label for="phone" class="form-label">Số điện thoại:</label>
+          <label for="NumberPhone" class="form-label">Số điện thoại:</label>
           <input
             [ngClass]="{
-              'is-invalid': submitted && registerForm.controls['phone'].errors
+              'is-invalid': submitted && registerForm.controls['NumberPhone'].errors
             }"
-            formControlName="phone"
+            formControlName="NumberPhone"
             type="text"
             placeholder="Nhập số điện thoại"
             class="form-control"
           />
           <div
-            *ngIf="submitted && registerForm.controls['phone'].errors"
+            *ngIf="submitted && registerForm.controls['NumberPhone'].errors"
             class="text-danger"
           >
             <div
               *ngIf="
-                submitted && registerForm.controls['phone'].errors['required']
+                submitted && registerForm.controls['NumberPhone'].errors['required']
               "
             >
               Bạn chưa nhập số điện thoại
             </div>
             <div
               *ngIf="
-                submitted && registerForm.controls['phone'].errors['maxlength']
+                submitted && registerForm.controls['NumberPhone'].errors['maxlength']
               "
             >
               Số điện thoại tối đa 10 số
@@ -62,7 +61,7 @@
                 submitted && registerForm.controls['password'].errors['minlength']
               "
             >
-              Password chứa ít nhất 8 kí tự
+              Password chứa ít nhất 4 kí tự
             </div>
           </div>
         </div>

@@ -13,15 +13,12 @@ export class LoginComponent {
   constructor(private formBuilder:FormBuilder){}
   ngOnInit(){
     this.registerForm = this.formBuilder.group({
-      password:['',[Validators.required,Validators.minLength(8)]],
-      phone:['',[Validators.required,Validators.maxLength(10)]],
-
-    })
-    
+      password:['',[Validators.required,Validators.minLength(4)]],
+      NumberPhone:['',[Validators.required,Validators.maxLength(10)]],
+    })   
   }
   onsubmit(){
-    this.submitted = true
-    
+    this.submitted = true  
     if(this.registerForm.invalid){
       return
     }

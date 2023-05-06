@@ -82,33 +82,30 @@ app.post("/users",cors(),async(req,res)=>{
   salt=crypto.randomBytes(16).toString('hex');
   usersCollection =database.collection("Users");
   users=req.body
-
   hash=crypto.pbkdf2Sync(users.password,salt,1000,64,`sha512`).toString(`hex`);
-
   users.password=hash
   users.salt=salt
-
   await usersCollection.insertOne(users)
  
   res.send(req.body)
 })
 app.post("/login",cors(),async(req,res)=>{
-  CustomerName=req.body.CustomerName
+  NumberPhone=req.body.NumberPhone
   password=req.body.password
 
   var crypto=require('crypto');
 
   usersCollection=database.collection("Users")
-  users= await usersCollection.findOne({CustomerName:CustomerName})
+  users= await usersCollection.findOne({NumberPhone:NumberPhone})
   if(users==null)
-  response.send({"CustomerName":CustomerName,"message":"not exist"})
+  response.send({"NumberPhone":NumberPhone,"message":"not exist"})
   else
   {
       hash = crypto.pbkdf2Sync(password,users.salt,1000,64,`sha512`).toString(`hex`);
       if ( users.password==hash)
       res.send(users)
       else
-      res.send({"CustomerName":CustomerName,
+      res.send({"NumberPhone":NumberPhone,
                 "password":password,
                 "message":"wrong password"})
   }

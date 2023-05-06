@@ -10,6 +10,9 @@ import { BiscottiComponent } from './biscotti/biscotti.component';
 import { CartComponent } from './cart/cart.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
+import { TinTucComponent } from './tin-tuc/tin-tuc.component';
+import { TintucDetailComponent } from './tintuc-detail/tintuc-detail.component';
+
 
 const routes: Routes = [
   {path:'homepage',component:HomepageComponent},
@@ -21,7 +24,9 @@ const routes: Routes = [
   { path: 'best-seller', component: BestSellerComponent },
   { path: 'biscotti', component: BiscottiComponent },
   { path: 'cart', component: CartComponent },
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path:'tintuc',component:TinTucComponent},
+  {path:'tintuc-detail',component:TintucDetailComponent}
 ];
 
 @NgModule({
@@ -39,6 +44,8 @@ export const RoutingComponent = [
   BestSellingProductsComponent,
   BestSellerComponent,
   BiscottiComponent,
-  LoginComponent
+  LoginComponent,
+  TinTucComponent,
+  TintucDetailComponent
   
 ];
