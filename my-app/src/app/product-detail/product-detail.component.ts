@@ -45,7 +45,7 @@ export class ProductDetailComponent implements OnInit {
       this.id = params.get('id');
     });
     this.getProduct(this.id);
-    this.carts = this._service.getCarts();
+    this.carts = this._apiservice.getCarts();
     // this.productsToLoadMore = this.products.slice(0, 5)
     if(sessionStorage.getItem("products") != null){
     let products = JSON.parse(sessionStorage.getItem("products") || "[]")
@@ -53,12 +53,6 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  // constructor(public _service: APIService) {  }
-
-  // ngOnInit(): void {
-  //   this.carts = this._service.getCarts();
-  // }
-  // carts: any = this._service.getCarts();
   addQuantity(biscotti:any) {
     biscotti.quantity += 1;
   }
@@ -89,7 +83,7 @@ export class ProductDetailComponent implements OnInit {
     }
 
     //lưu vào storage
-    this._service.saveCart(this.carts);
+    this._apiservice.saveCart(this.carts);
     Swal.fire({
       title: 'Thêm vào giỏ hàng thành công',
       icon: 'success',
