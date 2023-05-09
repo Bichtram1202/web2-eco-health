@@ -5,9 +5,13 @@ const port = 3002;
 const morgan = require("morgan");
 app.use(morgan("combined"));
 
-const bodyParser = require("body-parser");
-app.use(bodyParser.json({ limit: "10mb" }));
-app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+// const bodyParser = require("body-parser");
+// app.use(bodyParser.json({ limit: "10mb" }));
+// app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb" }));
@@ -59,6 +63,8 @@ database = client.db("EcohealData");
 customerCollection = database.collection("Customer");
 biscottiCollection = database.collection("Biscotti");
 productsCollection = database.collection("Products");
+chitietdonhangCollection = database.collection("Chitietdonhang");
+tintucsongkhoeCollection = database.collection("Tintucsongkhoe");
 
 app.get("/biscottis", cors(), async (_req, res) => {
   const result = await biscottiCollection.find({}).toArray();
@@ -140,5 +146,57 @@ app.delete("/product/:id", cors(), async (req, res) => {
   var o_id = new ObjectId(req.params["id"]);
   const result = await productsCollection.find({ _id: o_id }).toArray();
   await productsCollection.deleteOne({ _id: o_id });
+  res.send(result[0]);
+});
+
+//chitietdonhang
+app.get("/chitietdonhang", cors(), async (_req, res) => {
+  const result = await chitietdonhangCollection.find({}).toArray();
+  res.send(result);
+});
+app.get("/chitietdonhang/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await chitietdonhangCollection.find({ _id: o_id }).toArray();
+  res.send(result[0]);
+});
+
+//tintucsongkhoe
+app.get("/tintucsongkhoe", cors(), async (_req, res) => {
+  const result = await tintucsongkhoeCollection.find({}).toArray();
+  res.send(result);
+});
+app.get("/tintucsongkhoe/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await tintucsongkhoeCollection.find({ _id: o_id }).toArray();
+  res.send(result[0]);
+});
+app.post("/tintucsongkhoe", cors(), async (req, res) => {
+  await tintucsongkhoeCollection.insertOne(req.body);
+  console.log("req: ", req.body);
+  res.send(req.body);
+});
+
+// app.put("/product", cors(), async (req, res) => {
+//   await productsCollection.updateOne(
+//     { _id: new ObjectId(req.body._id) },
+//     {
+//       $set: {
+//         name: req.body.name,
+//         type: req.body.type,
+//         describe: req.body.describe,
+//         price: req.body.price,
+//         sold: req.body.sold,
+//         img_url: req.body.img_url,
+//       },
+//     }
+//   );
+//   var o_id = new ObjectId(req.body._id);
+//   const result = await productsCollection.find({ _id: o_id }).toArray();
+//   res.send(result[0]);
+// });
+app.delete("/tintucsongkhoe/:id", cors(), async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await tintucsongkhoeCollection.find({ _id: o_id }).toArray();
+  await tintucsongkhoeCollection.deleteOne({ _id: o_id });
   res.send(result[0]);
 });
