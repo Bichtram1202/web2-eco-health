@@ -107,7 +107,7 @@ padding-bottom: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.add-to-cart-button-right a:link, a:visited{
+/* .add-to-cart-button-right a:link, a:visited{
   padding: 3px 3px;
   color: black;
   text-align: center;
@@ -119,4 +119,7 @@ padding-bottom: 5px;
 {
   color: rgb(18, 188, 89);
 
+} */
+.add-to-cart-button-right > button > span {
+  cursor: pointer;
 }

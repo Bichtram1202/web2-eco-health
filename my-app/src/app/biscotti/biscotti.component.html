@@ -1,22 +1,18 @@
-
 <div class="rowlist" *ngFor="let biscotti of biscottis">
   <div class="product-small">
-    <div class="box-image-biscotti" >
-
+    <div class="box-image-biscotti">
       <a href="" aria-label="">
         <img
-        src="../../assets/biscotti_images/{{biscotti.img_url}}"
-        width="200px"
-          height="200px"/>
-
+          src="../../assets/biscotti_images/{{ biscotti.img_url }}"
+          width="200px"
+          height="200px"
+        />
       </a>
-
     </div>
     <div class="text-image-biscotti">
         <div class="title-image-biscotti">
           {{biscotti.name}}
         </div>
-        
         <div class="price-biscotti" >
 
                 <button id="price-biscotti">{{biscotti.price}}<span>VND</span>
@@ -38,11 +34,21 @@
             Thêm vào giỏ hàng
           </a>
           </button>
-          </div>
-
-
         </div>
+
+        <div class="add-to-cart-button-right">
+          <button
+
+            class="add-to-cart-button-right"
+            id="add-to-cart-button-right"
+            style="cursor: pointer"
+          >
+            <span>
+              Thêm vào giỏ hàng
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>

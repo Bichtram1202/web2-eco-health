@@ -8,6 +8,12 @@ import { Product } from './Product';
   providedIn: 'root',
 })
 export class ProductAPIService {
+  getCarts(): any {
+    throw new Error('Method not implemented.');
+  }
+  saveCart(carts: any) {
+    throw new Error('Method not implemented.');
+  }
 
   public hideLoadMoreBtn =false;
 

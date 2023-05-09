@@ -8,8 +8,8 @@ import { ProductAPIService } from '../product-api.service';
   styleUrls: ['./page-menu.component.css']
 })
 export class PageMenuComponent {
-
-
+  biscottis: any;
+  // cartcount = 0;
   title = 'my-app';
   images = [
     {
@@ -38,6 +38,13 @@ export class PageMenuComponent {
   onSubmit() {
     this._router.navigateByUrl;
   }
+
+  // ngOnInit(): void{
+  //   if(sessionStorage.getItem("products") != null){
+  //     let products = JSON.parse(sessionStorage.getItem("products") || "[]")
+  //     this.cartcount = products.length;
+  //   }
+  // }
   type: string='';
   products:any;
   errMessage:string='';

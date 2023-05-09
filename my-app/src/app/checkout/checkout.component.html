@@ -1,0 +1,184 @@
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="bread">
+          <span><a href="index.html">Home</a></span> / <span>Checkout</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="colorlib-product">
+  <div class="container">
+    <div class="row row-pb-lg">
+      <div class="col-sm-10 offset-md-1">
+        <div class="process-wrap">
+          <div class="process text-center active">
+            <p><span>01</span></p>
+            <h3>Shopping Cart</h3>
+          </div>
+          <div class="process text-center active">
+            <p><span>02</span></p>
+            <h3>Checkout</h3>
+          </div>
+          <div class="process text-center">
+            <p><span>03</span></p>
+            <h3>Order Complete</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- khi nào bên register + user có thì mới mở comment -->
+    <!-- <form [formGroup]="formdata" (submit)="submit(formdata.value)" class="colorlib-form"> -->
+    <form class="colorlib-form" [formGroup]="checkOutForm" (ngSubmit)="onSubmit(orderForm.value)" #orderForm="ngForm">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Thông tin thanh toán</h2>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="fname">Địa chỉ</label>
+                <input
+                  type="text"
+                  formControlName="address"
+                  class="form-control"
+                  placeholder="Nhập địa chỉ"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="companyname">Thành Phố</label>
+                <input
+                  type="text"
+                  formControlName="city"
+                  class="form-control"
+                  placeholder="Nhập thành phố"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="stateprovince">Quận/ Huyện</label>
+                <input
+                  type="text"
+                  formControlName="state"
+                  class="form-control"
+                  placeholder="Nhập Quận/ Huyện"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="lname">Zip/Postal Code</label>
+                <input
+                  type="text"
+                  formControlName="pincode"
+                  class="form-control"
+                  placeholder="Zip / Postal"
+                />
+              </div>
+            </div>
+
+            <!-- <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" class="form-control" placeholder="Email">
+              </div>
+            </div> -->
+            <!-- <div class="col-md-6">
+              <div class="form-group">
+                <label for="Phone">Số điện thoại</label>
+                <input type="text" id="zippostalcode" class="form-control" placeholder="">
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="cart-detail">
+                <h2>Tổng thanh toán</h2>
+                <ul>
+                  <li>
+                    <ul>
+                      <li *ngFor="let product of products">
+                        <span>{{ product.quantity }} x {{ product.name }}</span>
+                        <span>{{ product.price }} VNĐ</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>Tổng tiền</span> <span>{{ subtotal }} VNĐ</span>
+                  </li>
+                  <li>
+                    <span>Phí vận chuyển</span> <span>{{ delivery }} VNĐ</span>
+                  </li>
+                  <li>
+                    <span>Tổng thanh toán</span>
+                    <span>{{ grandtotal }} VNĐ</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="w-100"></div>
+
+            <div class="col-md-12">
+              <!--
+            <div class="cart-detail">
+              <h2>Payment Method</h2>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="radio">
+                     <label><input type="radio" name="optradio"> Direct Bank Tranfer</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="radio">
+                     <label><input type="radio" name="optradio"> Check Payment</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="radio">
+                     <label><input type="radio" name="optradio"> Paypal</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="checkbox">
+                     <label><input type="checkbox" value=""> I have read and accept the terms and conditions</label>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <!-- Đợi bên register vs login rồi mới add vào: [disable]="!formdata.valid"  -->
+              <!-- <p><button [disable]="!formdata.valid" class="btn btn-primary">Thanh toán</button></p> -->
+              <p>
+                <input
+                  type="submit"
+                  class="btn btn-primary"
+                  value="Thanh toán"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
