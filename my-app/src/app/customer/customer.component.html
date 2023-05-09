@@ -1,91 +1,174 @@
-<!-- <h3>Khách hàng</h3>
-<p>Xin chào, Hồng Ngọc! Mừng bạn quay trở lại Admin Web</p>
-<div class="group">
-  <div class="group">
-    <div>
-      <img src="../../assets/customericongroup.png" alt="" class="icongroup" />
-    </div>
-    <div>
-      <p>Tổng khách hàng</p>
-      <p>{{ customers.length }}</p>
-    </div>
-  </div>
-  <div class="group">
-    <div>
-      <img src="../../assets/customericongroup1.png" alt="" class="icongroup" />
-    </div>
-    <div>
-      <p>Khách hàng mới</p>
-    </div>
-  </div>
-  <div class="group">
-    <div>
-      <img src="../../assets/customericongroup2.png" alt="" class="icongroup" />
-    </div>
-    <div>
-      <p>Đang hoạt động</p>
-      <p>{{ activeCustomers }}</p>
-    </div>
-  </div>
-</div>
-<div>
-  <div class="group">
-    <div>
-      <h3><b>Danh sách khách hàng</b></h3>
-      <h5 class="color-green">Tài khoản đang hoạt động</h5>
-      {{ errMessage }}
-    </div>
-    <div class="group search-sort">
+<div class="py-6 px-9">
+  <h3>Khách hàng</h3>
+  <p>Xin chào, Hồng Ngọc! Mừng bạn quay trở lại Admin Web</p>
+  <div class="flex mt-5 justify-between">
+    <div class="group">
       <div>
-        <img class="iconsearch" src="../../assets/search .png" alt="" />
-        <input type="search" [(ngModel)]="searchText" placeholder="Search" /><i
-          class="material-icons"
-        ></i>
+        <img
+          src="../../assets/customericongroup.png"
+          alt=""
+          class="icongroup"
+        />
       </div>
-      <div (click)="sort('CustomerId')">
+      <div>
+        <p>Tổng khách hàng</p>
+        <p>{{ customers.length }}</p>
+      </div>
+    </div>
+    <div class="group">
+      <div>
+        <img
+          src="../../assets/customericongroup1.png"
+          alt=""
+          class="icongroup"
+        />
+      </div>
+      <div>
+        <p>Khách hàng mới</p>
+      </div>
+    </div>
+    <div class="group">
+      <div>
+        <img
+          src="../../assets/customericongroup2.png"
+          alt=""
+          class="icongroup"
+        />
+      </div>
+      <div>
+        <p>Đang hoạt động</p>
+        <p>{{ activeCustomers }}</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="group">
+      <div>
+        <h3><b>Danh sách khách hàng</b></h3>
+        <h5 class="color-green">Tài khoản đang hoạt động</h5>
+        {{ errMessage }}
+      </div>
+      <div class="group search-sort">
         <div>
-          Sort by: CustomerId
-          <img class="iconsearch" src="../../assets/sortby.png" alt="" />
+          <img
+            src="../../assets/customericongroup.png"
+            alt=""
+            class="icongroup"
+          />
+        </div>
+        <div class="ml-2">
+          <p class="mb-0">Tổng khách hàng</p>
+          <p class="font-bold text-lg">{{ customers.length }}</p>
+        </div>
+      </div>
+      <div class="group">
+        <div>
+          <img
+            src="../../assets/customericongroup1.png"
+            alt=""
+            class="icongroup"
+          />
+        </div>
+        <div class="ml-2">
+          <p class="mb-0">Đang hoạt động</p>
+          <p class="font-bold text-lg">{{ activeCustomers }}</p>
+        </div>
+      </div>
+      <div class="group">
+        <div>
+          <img
+            src="../../assets/customericongroup2.png"
+            alt=""
+            class="icongroup"
+          />
+        </div>
+        <div class="ml-2">
+          <p class="mb-0">Không hoạt động</p>
+          <p class="font-bold text-lg">
+            {{ customers.length - activeCustomers }}
+          </p>
         </div>
       </div>
     </div>
-  </div>
+    <div>
+      <div class="group mt-4 flex items-center justify-between">
+        <div>
+          <h3><b>Danh sách khách hàng</b></h3>
+          <h5 class="color-green mt-2">Tài khoản đang hoạt động</h5>
+          {{ errMessage }}
+        </div>
+        <div class="search-sort flex">
+          <div class="flex items-center bg-blue-50 p-2 rounded pr-4 mr-6">
+            <img class="iconsearch" src="../../assets/search .png" alt="" />
+            <input
+              class="active:outline-none bg-blue-50 ml-1"
+              type="search"
+              [(ngModel)]="searchText"
+              placeholder="Search"
+            /><i class="material-icons"></i>
+          </div>
+          <div
+            (click)="sort('CustomerId')"
+            class="flex bg-blue-50 p-2 rounded items-center"
+          >
+            <div class="mr-1">Sort by: CustomerId</div>
+            <img class="iconsearch" src="../../assets/sortby.png" alt="" />
+          </div>
+        </div>
+      </div>
 
-  <table mat-table class="tablecustomer">
-    <tr>
-      <td>Mã khách hàng</td>
-      <td>Tên khách hàng</td>
-      <td>Số điện thoại</td>
-      <td>Email</td>
-      <td>Địa chỉ</td>
-      <td>Tình trạng</td>
-    </tr>
-    <tbody>
-      <tr
-        *ngFor="
-          let cus of customers
-            | filter : searchText
-            | orderBy : key : reverse
-            | paginate : { itemsPerPage: 5, currentPage: p }
-        "
-      >
-        <td>{{ cus.CustomerId }}</td>
-        <td>{{ cus.CustomerName }}</td>
-        <td>{{ cus.NumberPhone }}</td>
-        <td>{{ cus.Email }}</td>
-        <td>{{ cus.Address }}</td>
-        <td class="box-status">{{ cus.Status }}</td>
-        <td>
-          <a routerLink="/customer/{{ cus._id }}"
-            ><img
-              src="../../assets/icon-detail.png"
-              width="50px"
-              height="50px"
-              alt=""
-          /></a>
-        </td>
-      </tr>
-    </tbody>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </table>
-</div> -->
+      <table mat-table class="tablecustomer w-full">
+        <tr class="text-[#B5B7C0]">
+          <td>Mã khách hàng</td>
+          <td>Tên khách hàng</td>
+          <td>Số điện thoại</td>
+          <td>Email</td>
+          <td>Địa chỉ</td>
+          <td>Tình trạng</td>
+        </tr>
+        <tbody class="font-medium">
+          <tr
+            *ngFor="
+              let cus of customers
+                | filter : searchText
+                | orderBy : key : reverse
+                | paginate : { itemsPerPage: 5, currentPage: p }
+            "
+          >
+            <td>{{ cus.CustomerId }}</td>
+            <td>{{ cus.CustomerName }}</td>
+            <td>{{ cus.NumberPhone }}</td>
+            <td>{{ cus.Email }}</td>
+            <td>{{ cus.Address }}</td>
+            <td *ngIf="cus.Status == 'Active'">
+              <p
+                class="px-4 py-2 bg-[rgb(156,205,98,0.3)] text-[rgb(0,135,103)] rounded mb-0 text-center"
+              >
+                {{ cus.Status }}
+              </p>
+            </td>
+            <td *ngIf="cus.Status == 'Inactive'">
+              <p
+                class="px-4 py-2 bg-[rgba(223,4,4,0.3)] text-[rgb(223,4,4)] rounded mb-0 text-center"
+              >
+                {{ cus.Status }}
+              </p>
+            </td>
+            <td>
+              <a routerLink="/customer/{{ cus._id }}"
+                ><img
+                  src="../../assets/icon-detail.png"
+                  width="50px"
+                  height="50px"
+                  alt=""
+              /></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flex justify-end mt-6">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
