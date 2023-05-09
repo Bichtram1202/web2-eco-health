@@ -1,0 +1,114 @@
+<div class="py-6 px-9">
+  <div class="customer-group">
+    <h3>Khách hàng</h3>
+    <p>Xin chào bạn, Mừng bạn quay trở lại Admin Web</p>
+  </div>
+  <div>
+    <form
+      action=""
+      method="post"
+      [formGroup]="promotionEdit"
+      (submit)="onSubmit()"
+    >
+      <img src="../../assets/promotion.jpg" alt="" />
+      <div>
+        <tr>
+          <p class="mt-3 text-base">{{ promotions.Describe }}</p>
+        </tr>
+      </div>
+      <div class="flex justify-between">
+        <div class="flex-[70%]">
+          <table mat-table class="w-full max-w-[500px] mt-5">
+            <tr>
+              <td class="border-0 w-[200px]">Ngày bắt đầu:</td>
+              <td class="border-0">
+                <input
+                  class="input-customerdetail"
+                  type="text"
+                  formControlName="Start"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0 w-[200px]">Ngày kết thúc:</td>
+              <td class="border-0">
+                <input
+                  class="input-customerdetail"
+                  type="text"
+                  formControlName="End"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0 w-[200px]">Áp dụng cho sản phẩm:</td>
+              <td class="border-0">
+                <select
+                  name="ProductType"
+                  id="ProductType"
+                  formControlName="ProductType"
+                >
+                  <option value="granola">Granola</option>
+                  <option value="boankieng">Bơ ăn kiêng</option>
+                  <option value="hatngucoc">Hạt ngũ cốc</option>
+                  <option value="biscotti">Biscotti</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0 w-[200px]">Đối tượng áp dụng:</td>
+              <td class="border-0">{{ promotions.Customer }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="flex-[30%]">
+          <div class="mt-2"><b>Người tạo</b></div>
+          <p>Your Name</p>
+          <div class="mt-1"><b>Share</b></div>
+          <div class="flex mt-2">
+            <div>
+              <img src="../../assets/iconlink.png" alt="" />
+            </div>
+            <div class="ml-2">Copy link</div>
+          </div>
+          <div class="flex mt-2">
+            <div>
+              <img src="../../assets/Twitter-icon.jpg" alt="" />
+            </div>
+            <div class="ml-2">Share on Twitter</div>
+          </div>
+          <div class="flex mt-2">
+            <div>
+              <img src="../../assets/facebookicon.jpg" alt="" />
+            </div>
+            <div class="ml-2">Share on Facebook</div>
+          </div>
+          <div class="mt-4"><b>Tags</b></div>
+          <div class="mt-2 px-2">
+            <div>tagname</div>
+          </div>
+          <div class="mt-4"><b>Chi tiết</b></div>
+          <div class="mt-2">
+            <div>Đã cập nhật</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group-button mt-6">
+        <div class="padding-10-40">
+          <button
+            (click)="onCancel()"
+            class="background-gray rounded w-20 py-2"
+            type="button"
+          >
+            Hủy
+          </button>
+        </div>
+        <div class="padding-10-40">
+          <button class="background-green rounded w-20 py-2" type="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

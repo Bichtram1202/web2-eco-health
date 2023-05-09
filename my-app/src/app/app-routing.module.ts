@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
-import {AppRoitingModule};
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
@@ -14,9 +13,10 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
 import { PageMenuComponent } from './page-menu/page-menu.component';
 import { HomeComponent } from './home/home.component';
-import { ProductListComponent } from'./product-list/product-list.component';
-import { SanPhamTheoLoaiComponent} from './san-pham-theo-loai/san-pham-theo-loai.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { SanPhamTheoLoaiComponent } from './san-pham-theo-loai/san-pham-theo-loai.component';
 import { CacLoaiComponent } from './cac-loai/cac-loai.component';
+import { AdminPromotionComponent } from './admin-promotion/admin-promotion.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -29,11 +29,12 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'adminproducts', component: AdminProductsComponent },
   { path: 'product/:id', component: AdminProductDetailComponent },
-   {path: 'page-menu', component: PageMenuComponent},
-   {path: 'home', component: HomeComponent},
-   {path: 'product-list', component: ProductListComponent},
-   {path:'loai/:id',component: SanPhamTheoLoaiComponent},
-   {path:'cac-loai', component: CacLoaiComponent}
+  { path: 'page-menu', component: PageMenuComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'product-list', component: ProductListComponent },
+  { path: 'loai/:id', component: SanPhamTheoLoaiComponent },
+  { path: 'cac-loai', component: CacLoaiComponent },
+  { path: 'admin-promtion', component: AdminPromotionComponent },
 ];
 
 @NgModule({
@@ -55,6 +56,6 @@ export const RoutingComponent = [
   HomeComponent,
   ProductListComponent,
   SanPhamTheoLoaiComponent,
-  CacLoaiComponent
-
+  CacLoaiComponent,
+  AdminPromotionComponent,
 ];

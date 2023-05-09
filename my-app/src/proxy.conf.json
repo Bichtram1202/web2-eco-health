@@ -6,27 +6,27 @@
       "/biscottis",
       "/items",
       "/products",
-      "/product"
+      "/product",
+      "/promotions"
     ],
     "target": "http://localhost:3002",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
-  }
-  ,
+  },
   {
-    "context":["/biscottis"],
-    "target":"http://localhost:3002",
-    "secure":true,
-    "changeOrigin":true,
-    "logLevel":"debug"
+    "context": ["/biscottis"],
+    "target": "http://localhost:3002",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
   },
 
   {
-    "context":["/products"],
-    "target":"http://localhost:3002",
-    "secure":true,
-    "changeOrigin":true,
-    "logLevel":"debug"
+    "context": ["/products"],
+    "target": "http://localhost:3002",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 ]
