@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class PageMenuComponent {
 
+  cartcount = 0;
   title = 'my-app';
   images = [
     {
@@ -32,5 +33,12 @@ export class PageMenuComponent {
   }
   onSubmit() {
     this._router.navigateByUrl;
+  }
+
+  ngOnInit(): void{
+    if(sessionStorage.getItem("products") != null){
+      let products = JSON.parse(sessionStorage.getItem("products") || "[]")
+      this.cartcount = products.length;
+    }
   }
 }

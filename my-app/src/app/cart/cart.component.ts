@@ -1,147 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartList } from '../Model/Cart.DataSource';
-import { Order } from '../Model/Order';
-import { OrderList } from '../Model/Order.DataSource';
-import { User } from '../Model/User';
-import { UserList } from '../Model/User.DataSource';
-import { CartService } from '../cart.service';
+import { APIService } from '../api.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent {
-  Swal: any;
-  index: any;
-  orderid: any = 0;
-  totalPrice: any = 0;
-  length: any = CartList.length;
-  user: User | any;
-  order: Order | any;
-  list: Order[] | any;
-  control: boolean = true;
-  constructor(private cartService: CartService, private router: Router) {
-    this.totalPrice = 0;
-    CartList.filter((x) => x.Status == true).forEach((item) => {
-      this.totalPrice += item.TotalPrice;
-    });
+export class CartComponent implements OnInit {
+[x: string]: any;
+  products: any;
+  subtotal = 0;
+  delivery = 0;
+  grandtotal = 0;
+  constructor(private router: Router, public _service: APIService) {}
+  ngOnInit(): void {
+    this.bind();
   }
-  confirmOrder(userid: any | undefined) {
-    this.control = true;
-    this.list = CartList;
 
-    this.user = UserList.find((x) => x.FullName == userid);
-
-    CartList.filter((x) => x.Status == true).forEach((item) => {
-      item.Item.sold -= item.Quantity;
-      if (item.Item.sold < 0) {
-        this.control = false;
-      }
-    });
-
-    if (this.control == true) {
-      if (CartList.filter((x) => x.Status == true).length > 0) {
-        this.order = new Order(this.user, this.list, this.totalPrice);
-        this.totalPrice = 0;
-        OrderList.push(this.order);
-        CartList.forEach((item) => {
-          item.Status = false;
-        });
-        this.router.navigate(['/ordersuccess']);
-        //Swal.fire("Xác nhận đặt hàng!", "Đặt hàng thành công", "success");
-        alert('Xác nhận đặt hàng!. Đặt hàng thành công');
-      } else {
-        // Swal.fire("Đơn hàng chưa được xác nhận", "Đặt hàng không thành công", "error");
-        alert('Đơn hàng chưa được xác nhận. Đặt hàng không thành công');
-      }
-    } else {
-      CartList.filter((x) => x.Status == true).forEach((item) => {
-        item.Item.sold -= -item.Quantity;
-        if (item.Item.sold < 0) {
-          this.control = false;
-        }
-      });
-      // Swal.fire("Đơn hàng chưa được xác nhận", "Sản phẩm đã hết hàng!", "error");
-      alert('Đơn hàng chưa được xác nhận. Sản phẩm đã hết hàng');
+  bind() {
+    this.products = JSON.parse(sessionStorage.getItem('products') || '[]');
+    console.log(this.products);
+    this.subtotal = 0;
+    this.grandtotal = 0;
+    this.delivery = 0;
+    for (let i = 0; i < this.products.length; i++) {
+      this.subtotal += this.products[i].price * this.products[i].quantity;
+    }
+    this.grandtotal = this.subtotal + this.delivery;
+    if (this.products.length == 0) {
+      // this.router.navigate([`/`]);
+      alert("Khong co san pham nao trong gio hang")
     }
   }
-  plusItem(id: any) {
-    CartList.filter((x) => x.Status == true).forEach((item) => {
-      if (item.Id == id) {
-        if (item.Item.sold > item.Quantity) {
-          item.Quantity++;
-          item.TotalPrice += item.Item.Price;
-          this.totalPrice += item.Item.Price;
+  quantityChanged(product: any, event: any) {
+    let ctrl = <HTMLInputElement>event.target;
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].id === product.id) {
+        this.products[i].quantity = parseInt(ctrl.value);
+      }
+    }
+    sessionStorage.setItem('products', JSON.stringify(this.products));
+    this.bind();
+  }
+  deleteProduct(product: any) {
+    if (
+      confirm('Bạn muốn xóa sản phẩm khỏi giỏ hàng?')
+      ) {
+      let cartproducts = new Array();
+      for (let i = 0; i < this.products.length; i++) {
+        if (this.products[i].id === product.id) {
+        } else {
+          cartproducts.push(this.products[i]);
         }
       }
-    });
-  }
-  minusItem(id: any) {
-    CartList.filter((x) => x.Status == true).forEach((item) => {
-      if (item.Id == id) {
-        if (item.Quantity >= 2) {
-          item.Quantity--;
-          item.TotalPrice -= item.Item.Price;
-          this.totalPrice -= item.Item.Price;
-        }
-      }
-    });
-  }
-  removeCart(id: any) {
-    this.Swal.fire({
-      title: 'Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Ok',
-      cancelButtonText: 'Cancel',
-    }).then((result: any) => {
-      if (result.value) {
-        this.totalPrice = 0;
-        CartList[id].Status = false;
-        CartList.filter((x) => x.Status == true).forEach((item) => {
-          this.totalPrice += item.TotalPrice;
-        });
-        this.Swal.fire(
-          'Thành công',
-          'Đã xóa sản phẩm ra khỏi giỏ hàng!',
-          'success'
-        );
-      } else if (result.dismiss === this.Swal.DismissReason.cancel) {
-        this.Swal.fire('Đã hủy', 'error');
-      }
-    });
-  }
-  cancelOrder() {
-    if (CartList.filter((x) => x.Status == true).length > 0) {
-      this.Swal.fire({
-        title: 'Bạn có chắc chắn muốn xóa giỏ hàng?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Ok',
-        cancelButtonText: 'Cancel',
-      }).then((result: any) => {
-        if (result.value) {
-          this.totalPrice = 0;
-          CartList.filter((x) => x.Status == true).forEach((item) => {
-            item.Status = false;
-          });
-          this.Swal.fire('Thành công', 'Xóa giỏ hàng thành công!', 'success');
-        } else if (result.dismiss === this.Swal.DismissReason.cancel) {
-          this.Swal.fire('Đã hủy', 'error');
-        }
-      });
-    } else {
-      // Swal.fire("Bạn không có bất kỳ món hàng nào trong giỏ hàng của mình", "error");
-      alert('Bạn không có bất kỳ món hàng nào trong giỏ hàng của mình');
+      this.products = cartproducts;
+      sessionStorage.setItem('products', JSON.stringify(this.products));
+      this.bind();
     }
   }
-
-  getCartList() {
-    return CartList.filter((x) => x.Status == true);
+  checkOut() {
+    this.router.navigate(["/checkout"]);
   }
-  // getUserList() {
-  //   return UserList;
-  // }
 }
