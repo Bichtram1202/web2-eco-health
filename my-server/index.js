@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const port = 3002;
 
-const morgan = require("morgan");
-app.use(morgan("combined"));
+const morgan = require("morgan")
+app.use(morgan("combined"))
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json({ limit: "10mb" }));
@@ -14,22 +14,23 @@ app.use(express.urlencoded({ limit: "10mb" }));
 app.use(express.json());
 
 const cors = require("cors");
-app.use(cors());
+app.use(cors())
 
-app.get("/", (_req, res) => {
-  res.send("Hello Restful API");
-});
 app.listen(port, () => {
-  console.log(`My Server listening on port ${port}`);
+  console.log(`My Server listening on port ${port}`)
 });
-const { MongoClient, ObjectId } = require("mongodb");
+app.get("/", (_req, res) => {
+  res.send("Hello Restful API")
+});
+
+const { MongoClient, ObjectId } = require('mongodb');
 client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 database = client.db("EcohealData");
 biscottiCollection = database.collection("Biscotti");
 productCollection = database.collection("Product");
 
-// connect to collection
+
 // customerCollection = database.collection("Customer");
 
 
@@ -39,8 +40,16 @@ app.get("/biscottis", cors(), async (_req, res) => {
   res.send(result);
 });
 app.get("/products", cors(), async (_req, res) => {
-  const result = await productCollection.find({}).toArray();
+  const result = await productCollection.find({
+  }).toArray();
   res.send(result);
+});
+//lúc nãy m để ở biến kia là _req
+//nếu để là _req thì dòng 49 phải là _req.params okiii
+app.get("/products/:id",cors(),async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await productCollection.find({_id: o_id}).toArray(); //có 2 cái (_id và id) muốn lấy cái nào thì đổi lại ở dòng này
+  res.send(result[0]);
 });
 
 // app.get("/customers", cors(), async (req, res) => {

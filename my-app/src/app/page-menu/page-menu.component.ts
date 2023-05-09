@@ -50,7 +50,10 @@ export class PageMenuComponent {
         error:(err)=>{this.errMessage=err}
       })
   });
-}}
+}
+
+
+}
 
 
 

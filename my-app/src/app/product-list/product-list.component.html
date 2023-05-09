@@ -1,23 +1,21 @@
-    <div class="rowlist" *ngFor="let product of products">
+    <div class="rowlist" *ngFor="let product of products ">
       <div class="product-small">
         <div class="box-image-biscotti" >
-
-          <a href="" aria-label="">
+          <a routerLink="/products/{{product._id}}" >
             <img
             src="../../assets/products_img/{{product.img_url}}"
             width="200px"
               height="200px"/>
-
           </a>
 
         </div>
         <div class="text-image-biscotti">
-            <div class="title-image-biscotti">
+            <div class="title-image-biscotti" routerLink="/sanpham/{{product._id}}" >
               {{product.name}}
             </div>
             <div class="price-biscotti" >
 
-                    <button id="price-biscotti">{{product.price}}<span>VND</span>
+                    <button id="price-biscotti" routerLink="/sanpham/{{product._id}}">{{product.price}}<span>VND</span>
                   </button>
 
             </div>
@@ -44,3 +42,7 @@
       </div>
 
     </div>
+    <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+
+
+

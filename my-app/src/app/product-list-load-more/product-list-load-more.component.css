@@ -119,3 +119,12 @@ padding-bottom: 5px;
   color: rgb(18, 188, 89);
 
 }
+.loadmore{
+  background-color: #E0DDCA;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 8px 113px 8px 113px;
+  text-align: center;
+  margin-bottom: 50px;
+}

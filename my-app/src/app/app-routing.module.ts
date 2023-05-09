@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from'./product-list/product-list.component';
 import { SanPhamTheoLoaiComponent} from './san-pham-theo-loai/san-pham-theo-loai.component';
 import { CacLoaiComponent } from './cac-loai/cac-loai.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { VeChungToiComponent } from './ve-chung-toi/ve-chung-toi.component';
+import { EditHoSoComponent } from './edit-ho-so/edit-ho-so.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -25,9 +28,15 @@ const routes: Routes = [
   { path: 'biscotti', component: BiscottiComponent },
    {path: 'page-menu', component: PageMenuComponent},
    {path: 'home', component: HomeComponent},
-   {path: 'product-list', component: ProductListComponent},
+   {path: 'products', component: ProductListComponent},
+   {path: 'products/:id', component: ProductDetailComponent},
+
    {path:'loai/:id',component: SanPhamTheoLoaiComponent},
-   {path:'cac-loai', component: CacLoaiComponent}
+   {path:'cac-loai', component: CacLoaiComponent},
+   {path:'ve-chung-toi', component: VeChungToiComponent},
+   {path:'edit-ho-so', component: EditHoSoComponent},
+
+
 ];
 
 @NgModule({
@@ -47,6 +56,9 @@ export const RoutingComponent = [
   HomeComponent,
   ProductListComponent,
   SanPhamTheoLoaiComponent,
-  CacLoaiComponent
+  CacLoaiComponent,
+  ProductDetailComponent,
+  VeChungToiComponent,
+  EditHoSoComponent
 
 ];

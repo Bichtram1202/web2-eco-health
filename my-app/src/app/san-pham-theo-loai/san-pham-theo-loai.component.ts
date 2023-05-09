@@ -19,7 +19,7 @@ export class SanPhamTheoLoaiComponent {
   biscotti: string ='';
   errMessage:string='';
   constructor(public _service: ProductAPIService){
-    this._service.getProducts().subscribe({
+    this._service.getProducts(0).subscribe({
       next:(data)=>{this.products=data},
       error:(err)=>{this.errMessage=err}
     })

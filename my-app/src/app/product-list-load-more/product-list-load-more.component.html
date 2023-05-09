@@ -1,46 +1,21 @@
-<app-carousel [images]="images"></app-carousel>
-<hr color="black">
-<h2>SẢN PHẨM BÁN CHẠY</h2>
-<app-home></app-home>
-<!-- <app-product-list></app-product-list> -->
-<router-outlet></router-outlet>
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="page-menu?type=biscotti" >BISCOTTI</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="page-menu?type=granola">GRANOLA</a>
-        </li>
-  <li class="nav-item">
-    <a class="nav-link" href="page-menu?type=boankieng">BƠ ĂN KIÊNG</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link"  href="page-menu?type=hatngucoc">HẠT NGŨ CỐC</a>
-  </li>
-
-</ul>
-
-<div class="rowlist" *ngFor="let product of products">
+<div class="rowlist" *ngFor="let product of productsLoadMore ">
   <div class="product-small">
     <div class="box-image-biscotti" >
-
       <a routerLink="/products/{{product._id}}" >
-        <!-- ../../assets/products_img/{{product.img_url}} -->
         <img
         src="../../assets/products_img/{{product.img_url}}"
         width="200px"
           height="200px"/>
-
       </a>
 
     </div>
     <div class="text-image-biscotti">
-        <div class="title-image-biscotti" routerLink="/products/{{product._id}}" >
+        <div class="title-image-biscotti" routerLink="/sanpham/{{product._id}}" >
           {{product.name}}
         </div>
         <div class="price-biscotti" >
 
-                <button id="price-biscotti" routerLink="/products/{{product._id}}">{{product.price}}<span>VND</span>
+                <button id="price-biscotti" routerLink="/sanpham/{{product._id}}">{{product.price}}<span>VND</span>
               </button>
 
         </div>
@@ -67,5 +42,12 @@
   </div>
 
 </div>
+<br>
+<div style="text-align: center;">
+  <button class="loadmore" (click)="handleLoadMore()">Xem Thêm</button>
+</div>
+
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+
 
 
