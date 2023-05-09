@@ -10,6 +10,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class HomeComponent implements OnInit {
   biscottis: any;
   errMessage: string = '';
+product: any;
   constructor(public _service: BiscottiAPIService) {
     this._service.getBiscottis().subscribe({
       next: (data) => {

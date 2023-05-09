@@ -23,19 +23,18 @@
   },
 
   {
-<<<<<<< HEAD
     "context":["/sanpham"],
     "target":"http://localhost:3002",
     "secure":true,
     "changeOrigin":true,
     "logLevel":"debug"
-=======
+  },
+  {
     "context": ["/products"],
     "target": "http://localhost:3002",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
->>>>>>> 279df75ece50585705bc26629694b10fae236204
   }
 
 ]

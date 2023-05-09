@@ -16,13 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SanPhamTheoLoaiComponent } from './san-pham-theo-loai/san-pham-theo-loai.component';
 import { CacLoaiComponent } from './cac-loai/cac-loai.component';
-<<<<<<< HEAD
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { VeChungToiComponent } from './ve-chung-toi/ve-chung-toi.component';
 import { EditHoSoComponent } from './edit-ho-so/edit-ho-so.component';
-=======
 import { AdminPromotionComponent } from './admin-promotion/admin-promotion.component';
->>>>>>> 279df75ece50585705bc26629694b10fae236204
 
 const routes: Routes = [
   { path: 'customers', component: CustomerComponent },
@@ -35,7 +32,6 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'adminproducts', component: AdminProductsComponent },
   { path: 'product/:id', component: AdminProductDetailComponent },
-<<<<<<< HEAD
    {path: 'page-menu', component: PageMenuComponent},
    {path: 'home', component: HomeComponent},
    {path: 'products', component: ProductListComponent},
@@ -46,15 +42,7 @@ const routes: Routes = [
    {path:'ve-chung-toi', component: VeChungToiComponent},
    {path:'edit-ho-so', component: EditHoSoComponent},
 
-
-=======
-  { path: 'page-menu', component: PageMenuComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'product-list', component: ProductListComponent },
-  { path: 'loai/:id', component: SanPhamTheoLoaiComponent },
-  { path: 'cac-loai', component: CacLoaiComponent },
   { path: 'admin-promtion', component: AdminPromotionComponent },
->>>>>>> 279df75ece50585705bc26629694b10fae236204
 ];
 
 @NgModule({
@@ -77,12 +65,9 @@ export const RoutingComponent = [
   ProductListComponent,
   SanPhamTheoLoaiComponent,
   CacLoaiComponent,
-<<<<<<< HEAD
   ProductDetailComponent,
   VeChungToiComponent,
-  EditHoSoComponent
+  EditHoSoComponent,
 
-=======
   AdminPromotionComponent,
->>>>>>> 279df75ece50585705bc26629694b10fae236204
 ];
