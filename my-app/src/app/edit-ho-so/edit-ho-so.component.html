@@ -1,0 +1,115 @@
+<h4> Chỉnh sửa hồ sơ</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group-hoten">
+          <div class="hoten">
+          <label for="firstname"> Tên: </label>
+          <input  formControlName="firstName" [ngClass]="{'is-invalid':submitted && registerForm.controls['firstName'].errors}" id="name" type="text" class="form-control" required="" placeholder="Hồng Ngọc">
+          <div *ngIf="submitted && registerForm.controls['firstName'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['firstName'].errors?.['required']">
+             First name is required
+            </div>
+          </div>
+        </div>
+        <div class="hoten">
+          <label for="lastname"> Họ: </label>
+          <input  formControlName="lastName" [ngClass]="{'is-invalid':submitted && registerForm.controls['lastName'].errors}" type="text" class="form-control" required="" placeholder="Võ">
+          <div *ngIf="submitted && registerForm.controls['lastName'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['lastName'].errors?.['required']">
+             Last name is required
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="form-group">
+          <label for="email"> Email : </label>
+          <input formControlName="email" [ngClass]="{'is-invalid':submitted && registerForm.controls['email'].errors}"  type="email" class="form-control" required="" placeholder="VoHongNgoc.business@gmail.com">
+          <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['required']">
+            email is required
+            </div>
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['email']"> Email không hợp lệ
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="diachi"> Địa chỉ : </label>
+          <input formControlName="diachi" [ngClass]="{'is-invalid':submitted && registerForm.controls['diachi'].errors}"  class="form-control" required="" placeholder="Bcons Plaza, Đông Hòa, Dĩ An, Việt Nam">
+          <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['required']">
+            email is required
+            </div>
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['email']"> Email không hợp lệ
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="diachi"> Số điện thoại : </label>
+          <input formControlName="diachi" [ngClass]="{'is-invalid':submitted && registerForm.controls['diachi'].errors}"  class="form-control" required="" placeholder="58077.79">
+          <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['required']">
+            email is required
+            </div>
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['email']"> Email không hợp lệ
+            </div>
+        </div>
+        </div>
+        <div class="form-group-diachi">
+        <div><label id="diachi"> Tỉnh/Thành Phố : </label></div>
+          <!-- <input formControlName="diachi" [ngClass]="{'is-invalid':submitted && registerForm.controls['diachi'].errors}"  class="form-control" required="">
+          <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger"> -->
+            <!-- <div *ngIf="submitted && registerForm.controls['email'].errors?.['required']">
+            email is required
+            </div> -->
+            <!-- <div *ngIf="submitted && registerForm.controls['email'].errors?.['email']"> Email không hợp lệ
+            </div> -->
+            <div>
+            <select id="diachi" name="diachi">
+              <option value="australia">Đà Lạt</option>
+              <option value="canada">Canada</option>
+              <option value="usa">USA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="diachi"> Quốc gia : </label>
+          <input formControlName="diachi" [ngClass]="{'is-invalid':submitted && registerForm.controls['diachi'].errors}"  class="form-control" required placeholder="Việt Name">
+          <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['required']">
+            email is required
+            </div>
+            <div *ngIf="submitted && registerForm.controls['email'].errors?.['email']"> Email không hợp lệ
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="password"> Password : </label>
+          <input formControlName="password" [ngClass]="{'is-invalid':submitted && registerForm.controls['password'].errors}" type="text" class="form-control" required="" placeholder="sbdfbnd65sfdvbs">
+          <div *ngIf="submitted && registerForm.controls['password'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['password'].errors?.['required']">
+            password is required
+            </div>
+            <div *ngIf="submitted && registerForm.controls['password'].errors?.['minlength']"> Mật khẩu phải ít nhất 7 ký tự nha
+            </div>
+          </div>
+        </div>
+        <div class="form-group-btn">
+          <div>
+      
+  <button class="btn-primary" id="onSubmit" type="submit">Lưu</button>
+</div>
+<div>
+  <button class="btn-primary" id="reset" (click)="onSubmit()"> Hủy</button>
+<p>{{submit}}</p>
+ </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>

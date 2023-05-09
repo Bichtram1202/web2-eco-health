@@ -1,57 +1,64 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2'
-import { APIService } from '../api.service';
+// import { Component, OnInit } from '@angular/core';
+// import Swal from 'sweetalert2'
+// import { APIService } from '../api.service';
+// import { BiscottiAPIService } from '../biscotti-api.service';
+// import { OwlOptions } from 'ngx-owl-carousel-o';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-})
-export class HomeComponent implements OnInit {
+// @Component({
+//   selector: 'app-home',
+//   templateUrl: './home.component.html',
+//   styleUrls: ['./home.component.css'],
+// })
+// export class HomeComponent implements OnInit {
+//   biscottis:any;
+//   carts:any = [];
+//   errMessage:string=''
 
-  carts:any = [];
-  errMessage:string=''
+//   constructor(public _service: BiscottiAPIService) {
+//     this._service.getBiscottis().subscribe({
+//       next: (data) => {
+//         this.biscottis = data;
+//       },
+//       error: (err) => {
+//         this.errMessage = err;
+//       },
+//     });
+//   }
+//   ngOnInit(): void {
+//     throw new Error('Method not implemented.');
+//   }
 
+//   customOptions: OwlOptions = {
+//     loop: true,
+//     margin: 10,
+//     mouseDrag: true,
+//     touchDrag: true,
+//     pullDrag: false,
+//     dots: false,
+//     navSpeed: 700,
+//     navText: ['Previous', 'Next'],
+//     responsive: {
+//       0: {
+//         items: 1,
+//       },
+//       400: {
+//         items: 2,
+//       },
+//       740: {
+//         items: 3,
+//       },
+//       940: {
+//         items: 4,
+//       },
+//     },
+//     nav: true,
+//   };
+//   // imagesList=[
+//   //   "../../assets/biscotti_images/biscotti gung.jpg",
+//   //   "../../assets/biscotti_images/biscotti matcha.jpg",
+//   //   "../../assets/biscotti_images/biscotti mix.jpg",
+//   //   "../../assets/biscotti_images/biscotti redvelvet.jpg",
+//   //   "../../assets/biscotti_images/biscotti toi.jpg"
 
-
-  constructor(public _service: APIService) {  }
-
-  ngOnInit(): void {
-    this.carts = this._service.getCarts();
-  }
-
-  // carts: any = this._service.getCarts();
-  onAddToCart(product: any) {
-    let idx = this.carts.findIndex((item: any) => {
-      return item.id == product.id;
-    });
-
-    if (idx >= 0) {
-      this.carts[idx].quantity += 1;
-    } else {
-      let cartItem: any = {
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-        subtotal: function () {
-          return this.price * this.quantity;
-        },
-      };
-
-      this.carts.push(cartItem);
-    }
-
-    //lưu vào storage
-    this._service.saveCart(this.carts);
-    Swal.fire({
-      title: 'Thêm vào giỏ hàng thành công',
-      icon: 'success'
-    });
-
-
-    console.log(this.carts);
-
-
-  }
-}
+//   // ]
+// }

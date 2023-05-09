@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ProductAPIService } from '../product-api.service';
 
 @Component({
   selector: 'app-page-menu',
@@ -7,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-menu.component.css']
 })
 export class PageMenuComponent {
-
-  cartcount = 0;
+  biscottis: any;
+  // cartcount = 0;
   title = 'my-app';
   images = [
     {
@@ -25,9 +26,12 @@ export class PageMenuComponent {
     },
   ];
 
+  ngOnInit(): void {
+    this.getProductList();
+  }
+  getProductList() {
 
-  constructor(private _router: Router) {}
-
+  }
   openListProduct() {
     this._router.navigate(['list.product']);
   }
@@ -35,10 +39,29 @@ export class PageMenuComponent {
     this._router.navigateByUrl;
   }
 
-  ngOnInit(): void{
-    if(sessionStorage.getItem("products") != null){
-      let products = JSON.parse(sessionStorage.getItem("products") || "[]")
-      this.cartcount = products.length;
-    }
-  }
+  // ngOnInit(): void{
+  //   if(sessionStorage.getItem("products") != null){
+  //     let products = JSON.parse(sessionStorage.getItem("products") || "[]")
+  //     this.cartcount = products.length;
+  //   }
+  // }
+  type: string='';
+  products:any;
+  errMessage:string='';
+  category: string = ''
+  constructor(public _service: ProductAPIService, private _router: Router, private activatedRoute: ActivatedRoute){
+    this.activatedRoute.queryParams.subscribe(params => {
+      let type = params['type']||'biscotti';
+      this._service.getProductCategories(type).subscribe({
+        next:(data)=>{this.products=data},
+        error:(err)=>{this.errMessage=err}
+      })
+  });
 }
+
+
+}
+
+
+
+

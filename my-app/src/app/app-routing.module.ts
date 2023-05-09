@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
@@ -9,12 +8,11 @@ import { MenuComponent } from './menu/menu.component';
 import { BestSellingProductsComponent } from './best-selling-products/best-selling-products.component';
 import { BestSellerComponent } from './best-seller/best-seller.component';
 import { BiscottiComponent } from './biscotti/biscotti.component';
-import { PageMenuComponent } from './page-menu/page-menu.component';
-import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { OrdersuccessComponent } from './ordersuccess/ordersuccess.component';
-import { OrdersComponent } from './orders/orders.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
+import { PageMenuComponent } from './page-menu/page-menu.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'page-menu', pathMatch: 'full' },
@@ -26,12 +24,7 @@ const routes: Routes = [
   { path: 'best-selling-products', component: BestSellingProductsComponent },
   { path: 'best-seller', component: BestSellerComponent },
   { path: 'biscotti', component: BiscottiComponent },
-  { path: 'page-menu', component: PageMenuComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'ordersuccess', component: OrdersuccessComponent },
+   {path: 'page-menu', component: PageMenuComponent}
 ];
 
 @NgModule({
@@ -47,10 +40,8 @@ export const RoutingComponent = [
   BestSellingProductsComponent,
   BestSellerComponent,
   BiscottiComponent,
+  AdminProductsComponent,
+  AdminProductDetailComponent,
   PageMenuComponent,
-  CartComponent,
-  HomeComponent,
-  CheckoutComponent,
-  OrdersComponent,
-  OrdersuccessComponent,
+
 ];

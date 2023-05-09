@@ -1,0 +1,463 @@
+<div class="container-chitietsp">
+  <div class="chitiet1">
+    <table id="chitiet1">
+      <tr>
+        <td id="col1" width="50%" >
+          <p>
+            <img
+              src="../../assets/products_img/{{ product.img_url }}"
+              width="300px"
+              height="300px"
+            />
+          </p>
+        </td>
+        <td id="col2">
+          <ul>
+            <li>
+              <h3>{{ product.name }}</h3>
+            </li>
+            <li>
+              <div class="danh-gia">
+                <div class="danhgiasao">
+                  <div class="tile">
+                    <p>{{ product.star }}</p>
+                  </div>
+                  <div class="sao">
+                    <img
+                      src="../../assets/products_img/{{ product.icon2_url }}"
+                    />
+                    <img
+                      src="../../assets/products_img/{{ product.icon2_url }}"
+                    />
+                    <img
+                      src="../../assets/products_img/{{ product.icon2_url }}"
+                    />
+                    <img
+                      src="../../assets/products_img/{{ product.icon2_url }}"
+                    />
+                  </div>
+                </div>
+                <div class="luotdanhgia">
+                  <p>55 Đánh Giá</p>
+                </div>
+                <div class="daban">
+                  <p>210 Đã Bán</p>
+                </div>
+              </div>
+            </li>
+            <hr class="my-hr">
+            <li class="hang3">
+              <div>
+                Giá: <span>{{ product.price }}</span> VNĐ
+              </div>
+            </li>
+            <li>
+              <div class="soluong">
+                <div style="display: flex">
+                  <p class="text-soluong"><strong>Số lượng</strong></p>
+                  <button (click)="reduceQuantity(product)">-</button>
+                  <input type="number" [(ngModel)]="quantity" />
+                  <button (click)="addQuantity(product)">+</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="add-to-cart-button" id="add-to-cart-button">
+                <div class="add-to-cart-button-left">
+                  <button
+                    class="add-to-cart-button-left"
+                    id="add-to-cart-button-left"
+                    style="cursor: pointer"
+                  >
+                    <a href=""> Mua ngay </a>
+                  </button>
+                </div>
+                <div class="add-to-cart-button-right">
+                  <button
+                  (click)="addToCart(product)"
+                    class="add-to-cart-button-right"
+                    id="add-to-cart-button-right"
+                    style="cursor: pointer"
+                  >
+                    <a href="">
+                      <img
+                        src="../../assets/header_02_cart.png"
+                        width="20px"
+                        height="20px"
+                      />
+                      <span>Thêm vào giỏ hàng</span>
+                    </a>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <hr />
+  <div class="chitiet2">
+    <div class="motasp">
+      <h3>MÔ TẢ SẢN PHẨM</h3>
+      <p>{{ product.describe }}</p>
+    </div>
+  </div>
+  <hr />
+  <div class="chitiet3" >
+    <div class="danhgiasp">
+      <h3>ĐÁNH GIÁ SẢN PHẨM</h3>
+      <div>
+      <div class="khachhang">
+        <table id="khachhangdanhgia">
+          <tr>
+            <td id="icon-avt-kh" width="10%">
+              <img
+                src="../../assets/user 1.png"
+                alt=""
+                width="40px"
+                height="40px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="tenkhdanhgia" style="display: flex;">
+                  <div class="left"><p style="font-weight: bold;">Võ Hồng Ngọc</p></div>
+<div class="right"><span id="ngaydanhgia" style="text-align: right;"> 09:30 21/10/2022</span></div>
+
+                  <li>
+                  <div id="content-danhgia">
+                    <div>
+                      Đánh giá:
+                      <span>
+                        <img
+                          src="../../assets/products_img/{{product.icon2_url}}" width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                      </span>
+                    </div>
+                    <div>
+                      Nhận xét: Ui phải nói là ngon lắm luôn í. Bánh ngon thơm
+                      giòn nữa. Rất vừa miệng. Cảm ơn shop nhiều lắm nhaaa. Nói
+                      chung các bạn nên mua dùng đi nhaaaaa.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="qtv">
+        <table id="qtv-traloi">
+          <tr>
+            <td id="icon-avt-qtv" width="50px">
+              <img
+                src="../../assets/qtv1.png"
+                alt=""
+                width="55px"
+                height="55px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="ten-quantrivien"><p style="font-weight: bold;">Quản Trị Viên</p></li>
+                <li>
+
+                    <div id="content-danhgia">
+                      Xin chào Võ Hồng Ngọc, ECOHEAL cảm ơn vì bạn đã tin tưởng mua sản phẩm tại  ECOHEAL. Chúng tôi hi vọng bạn đã có những trải nghiệm tốt khi mua hàng.Rất mong Hồng Ngọc tin tưởng và ủng hộ, Chúc Ngọc gặp nhiều may mắn và niềm vui.
+                    </div>
+
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="khachhang">
+        <table id="khachhangdanhgia">
+          <tr>
+            <td id="icon-avt-kh" width="10%">
+              <img
+                src="../../assets/user 1.png"
+                alt=""
+                width="40px"
+                height="40px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="tenkhdanhgia" style="display: flex;">
+                  <div class="left"><p style="font-weight: bold;">Võ Hồng Ngọc</p></div>
+<div class="right"><span id="ngaydanhgia" style="text-align: right;"> 09:30 21/10/2022</span></div>
+
+                  <li>
+                  <div id="content-danhgia">
+                    <div>
+                      Đánh giá:
+                      <span>
+                        <img
+                          src="../../assets/products_img/{{product.icon2_url}}" width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                      </span>
+                    </div>
+                    <div>
+                      Nhận xét: Ui phải nói là ngon lắm luôn í. Bánh ngon thơm
+                      giòn nữa. Rất vừa miệng. Cảm ơn shop nhiều lắm nhaaa. Nói
+                      chung các bạn nên mua dùng đi nhaaaaa.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="qtv">
+        <table id="qtv-traloi">
+          <tr>
+            <td id="icon-avt-qtv" width="50px">
+              <img
+                src="../../assets/qtv1.png"
+                alt=""
+                width="55px"
+                height="55px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="ten-quantrivien"><p style="font-weight: bold;">Quản Trị Viên</p></li>
+                <li>
+
+                    <div id="content-danhgia">
+                      Xin chào Võ Hồng Ngọc, ECOHEAL cảm ơn vì bạn đã tin tưởng mua sản phẩm tại  ECOHEAL. Chúng tôi hi vọng bạn đã có những trải nghiệm tốt khi mua hàng.Rất mong Hồng Ngọc tin tưởng và ủng hộ, Chúc Ngọc gặp nhiều may mắn và niềm vui.
+                    </div>
+
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="khachhang">
+        <table id="khachhangdanhgia">
+          <tr>
+            <td id="icon-avt-kh" width="10%">
+              <img
+                src="../../assets/user 1.png"
+                alt=""
+                width="40px"
+                height="40px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="tenkhdanhgia" style="display: flex;">
+                  <div class="left"><p style="font-weight: bold;">Võ Hồng Ngọc</p></div>
+<div class="right"><span id="ngaydanhgia" style="text-align: right;"> 09:30 21/10/2022</span></div>
+
+                  <li>
+                  <div id="content-danhgia">
+                    <div>
+                      Đánh giá:
+                      <span>
+                        <img
+                          src="../../assets/products_img/{{product.icon2_url}}" width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                      </span>
+                    </div>
+                    <div>
+                      Nhận xét: Ui phải nói là ngon lắm luôn í. Bánh ngon thơm
+                      giòn nữa. Rất vừa miệng. Cảm ơn shop nhiều lắm nhaaa. Nói
+                      chung các bạn nên mua dùng đi nhaaaaa.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="qtv">
+        <table id="qtv-traloi">
+          <tr>
+            <td id="icon-avt-qtv" width="50px">
+              <img
+                src="../../assets/qtv1.png"
+                alt=""
+                width="55px"
+                height="55px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="ten-quantrivien"><p style="font-weight: bold;">Quản Trị Viên</p></li>
+                <li>
+
+                    <div id="content-danhgia">
+                      Xin chào Võ Hồng Ngọc, ECOHEAL cảm ơn vì bạn đã tin tưởng mua sản phẩm tại  ECOHEAL. Chúng tôi hi vọng bạn đã có những trải nghiệm tốt khi mua hàng.Rất mong Hồng Ngọc tin tưởng và ủng hộ, Chúc Ngọc gặp nhiều may mắn và niềm vui.
+                    </div>
+
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+      <div class="khachhang">
+        <table id="khachhangdanhgia">
+          <tr>
+            <td id="icon-avt-kh" width="10%">
+              <img
+                src="../../assets/user 1.png"
+                alt=""
+                width="40px"
+                height="40px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="tenkhdanhgia" style="display: flex;">
+                  <div class="left"><p style="font-weight: bold;">Võ Hồng Ngọc</p></div>
+<div class="right"><span id="ngaydanhgia" style="text-align: right;"> 09:30 21/10/2022</span></div>
+
+                  <li>
+                  <div id="content-danhgia">
+                    <div>
+                      Đánh giá:
+                      <span>
+                        <img
+                          src="../../assets/products_img/{{product.icon2_url}}" width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                        <img
+                          src="../../assets/products_img/{{
+                            product.icon2_url
+                          }}"  width="18px" height="18px"
+                        />
+                      </span>
+                    </div>
+                    <div>
+                      Nhận xét: Ui phải nói là ngon lắm luôn í. Bánh ngon thơm
+                      giòn nữa. Rất vừa miệng. Cảm ơn shop nhiều lắm nhaaa. Nói
+                      chung các bạn nên mua dùng đi nhaaaaa.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="qtv">
+        <table id="qtv-traloi">
+          <tr>
+            <td id="icon-avt-qtv" width="50px">
+              <img
+                src="../../assets/qtv1.png"
+                alt=""
+                width="55px"
+                height="55px"
+              />
+            </td>
+            <td>
+              <ul>
+                <li id="ten-quantrivien"><p style="font-weight: bold;">Quản Trị Viên</p></li>
+                <li>
+
+                    <div id="content-danhgia">
+                      Xin chào Võ Hồng Ngọc, ECOHEAL cảm ơn vì bạn đã tin tưởng mua sản phẩm tại  ECOHEAL. Chúng tôi hi vọng bạn đã có những trải nghiệm tốt khi mua hàng.Rất mong Hồng Ngọc tin tưởng và ủng hộ, Chúc Ngọc gặp nhiều may mắn và niềm vui.
+                    </div>
+
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      </div>
+    </div>
+    <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+  </div>
+<div class="chitiet4">
+<h3>CÁC SẢN PHẨM KHÁC</h3>
+<!-- <app-product-list></app-product-list> -->
+<app-product-list-load-more></app-product-list-load-more>
+</div>
+</div>
+<!-- <router-outlet></router-outlet> -->

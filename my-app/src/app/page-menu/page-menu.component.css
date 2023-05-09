@@ -1,0 +1,125 @@
+.product{
+  padding: 20px 0;
+}
+.slider-wrap{
+  position: relative;
+}
+.slider-main{
+  position: absolute;
+}
+.item{
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  background: #753434;
+}
+.text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.box-image-biscotti {
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  transition: opacity .3s,transform .3s,background-color .3s;
+
+}
+.rowlist{
+  display:inline-block;
+  margin: 20px;
+
+
+}
+.product-small{
+background-color: #E0DDCA;
+  /* background-color: rgba(182, 182, 182, 0.323); */
+  height: 330px;
+  width: 190px;
+  margin:  0;
+  padding: 0;
+
+
+}
+.text-image-biscotti{
+/* background-color: rgba(125, 123, 123, 0.793); */
+text-align: center;
+color: black;
+font-size: 18px;
+font-family: inherit;
+
+
+}
+.box-image-biscotti{
+
+
+}
+.title-image-biscotti{
+  margin-top: 10px;
+}
+#price-biscotti{
+  font-size: 17px;
+  border-radius: 9px;
+  border-style:hidden;
+padding-top: 3px;
+padding-left: 3px;
+margin-top: 15px;
+
+}
+#add-to-cart-button{
+padding-left: 3px;
+padding-right: 3px;
+display:inline-flex;
+margin-top: 15px;
+
+}
+#add-to-cart-button-left {
+
+  border-radius: 8px;
+  border-style:hidden;
+  font-size: 10px;
+  background-color:#77b153 ;
+margin-right: 5px;
+padding-top: 5px;
+padding-bottom: 5px;
+
+}
+.add-to-cart-button-left a:link, a:visited{
+  padding: 3px 3px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+.add-to-cart-button-left a:hover, a:active
+{
+  color: rgb(4, 5, 5);
+
+}
+
+#add-to-cart-button-right{
+  border-radius: 8px;
+  border-style:hidden;
+  background-color:#ACACAC ;
+  font-size: 10px;
+  padding-left: 3px;
+  margin-left: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.add-to-cart-button-right a:link, a:visited{
+  padding: 3px 3px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+
+
+}
+.add-to-cart-button-right a:hover, a:active
+{
+  color: rgb(18, 188, 89);
+
+}

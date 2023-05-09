@@ -1,91 +1,155 @@
-<h3>Khách hàng / Chi tiết</h3>
-<p>Xin chào, Hồng Ngọc! Mừng bạn quay trở lại Admin Web</p>
-<div class="group">
-  <div class="group">
-    <div>
-      <img src="../../assets/customericongroup.png" alt="" class="icongroup" />
+<div class="py-6 px-9">
+  <h3>Khách hàng / Chi tiết</h3>
+  <p>Xin chào, Hồng Ngọc! Mừng bạn quay trở lại Admin Web</p>
+  <div class="flex mt-5 justify-between">
+    <div class="group">
+      <div>
+        <img
+          src="../../assets/customericongroup.png"
+          alt=""
+          class="icongroup"
+        />
+      </div>
+      <div class="ml-2">
+        <p class="mb-0">Tổng khách hàng</p>
+        <p class="font-bold text-lg">{{ customers.length }}</p>
+      </div>
     </div>
-    <div>
-      <p>Tổng khách hàng</p>
-      <!-- <p>{{ customers.CustomerId }}</p> -->
+    <div class="group">
+      <div>
+        <img
+          src="../../assets/customericongroup1.png"
+          alt=""
+          class="icongroup"
+        />
+      </div>
+      <div class="ml-2">
+        <p class="mb-0">Đang hoạt động</p>
+        <p class="font-bold text-lg">{{ activeCustomers }}</p>
+      </div>
+    </div>
+    <div class="group">
+      <div>
+        <img
+          src="../../assets/customericongroup2.png"
+          alt=""
+          class="icongroup"
+        />
+      </div>
+      <div class="ml-2">
+        <p class="mb-0">Không hoạt động</p>
+        <p class="font-bold text-lg">
+          {{ customers.length - activeCustomers }}
+        </p>
+      </div>
     </div>
   </div>
-  <div class="group">
-    <div>
-      <img src="../../assets/customericongroup1.png" alt="" class="icongroup" />
-    </div>
-    <div>
-      <p>Khách hàng mới</p>
-    </div>
+  <div>
+    <form
+      action=""
+      method="post"
+      [formGroup]="customerEdit"
+      (submit)="onSubmit()"
+    >
+      <div>
+        <table class="w-[70%]">
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id"
+                >Mã Khách Hàng:</label
+              >
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="CustomerId"
+                readonly
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Tên:</label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="CustomerName"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Giới Tính:</label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="Gender"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">SĐT:</label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="NumberPhone"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="w-[300px]">
+              <label class="label-customerdetail" for="id">Email:</label>
+            </td>
+            <td class="max-w-full">
+              <input
+                class="input-customerdetail"
+                type="text"
+                formControlName="Address"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <hr class="h-[2px]" />
+      <div class="flex items-center">
+        <p class="w-[300px] mb-0 font-semibold">Tình trạng tài khoản:</p>
+        <input
+          class="px-4 py-2 rounded"
+          [ngClass]="{
+            'bg-[rgb(156,205,98,0.3)] text-[rgb(0,135,103)]':
+              customerEdit.value.Status === 'Active',
+            'bg-[rgba(223,4,4,0.3)] text-[rgb(223,4,4)]':
+              customerEdit.value.Status === 'Inactive'
+          }"
+          type="button"
+          formControlName="Status"
+          (click)="toggleStatus()"
+        />
+      </div>
+      <div class="group-button mt-6">
+        <div class="padding-10-40">
+          <button
+            class="background-gray rounded w-20 py-2"
+            type="button"
+            (click)="onCancel()"
+          >
+            Hủy
+          </button>
+        </div>
+        <div class="padding-10-40">
+          <button class="background-green rounded w-20 py-2" type="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="group">
-    <div>
-      <img src="../../assets/customericongroup2.png" alt="" class="icongroup" />
-    </div>
-    <div>
-      <p>Đang hoạt động</p>
-    </div>
-  </div>
-</div>
-<div>
-  <table>
-    <tr>
-      <td>Mã Khách Hàng:</td>
-      <td>{{ customer.CustomerId }}</td>
-    </tr>
-    <tr>
-      <td>Tên:</td>
-      <td>{{ customer.CustomerName }}</td>
-    </tr>
-    <tr>
-      <td>Giới tính:</td>
-      <td>{{ customer.Gender }}</td>
-    </tr>
-    <tr>
-      <td>SĐT:</td>
-      <td>{{ customer.NumberPhone }}</td>
-    </tr>
-    <tr>
-      <td>Email:</td>
-      <td>{{ customer.Email }}</td>
-    </tr>
-    <tr>
-      <td>Địa chỉ:</td>
-      <td>{{ customer.Address }}</td>
-    </tr>
-  </table>
-</div>
-<div>
-  <form
-    action=""
-    method="post"
-    [formGroup]="customerEdit"
-    (submit)="onSubmit()"
-  >
-    <div>
-      <label for="id">Mã Khách Hàng:</label>
-      <input type="text" formControlName="CustomerId" />
-    </div>
-    <div>
-      <label for="id">Tên:</label>
-      <input type="text" formControlName="CustomerName" />
-    </div>
-    <div>
-      <label for="id">Giới Tính:</label>
-      <input type="text" formControlName="Gender" />
-    </div>
-    <div>
-      <label for="id">SĐT:</label>
-      <input type="text" formControlName="NumberPhone" />
-    </div>
-    <div>
-      <label for="id">Email:</label>
-      <input type="text" formControlName="Email" />
-    </div>
-    <div>
-      <label for="id">Địa chỉ:</label>
-      <input type="text" formControlName="Address" />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
 </div>

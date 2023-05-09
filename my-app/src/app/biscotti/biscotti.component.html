@@ -18,11 +18,11 @@
           {{ biscotti.price }}<span>VND</span>
         </button>
       </div>
-      <div>
+      <!-- <div>
         <button (click)="reduceQuantity(biscotti)">-</button>
         <input [(ngModel)]="biscotti.quantity" type="text" max="100" min="1" readonly />
         <button (click)="addQuantity(biscotti)">+</button>
-      </div>
+      </div> -->
       <div class="add-to-cart-button" id="add-to-cart-button">
         <div class="add-to-cart-button-left">
           <button
@@ -36,7 +36,7 @@
 
         <div class="add-to-cart-button-right">
           <button
-            (click)="addToCart(biscotti)"
+            
             class="add-to-cart-button-right"
             id="add-to-cart-button-right"
             style="cursor: pointer"

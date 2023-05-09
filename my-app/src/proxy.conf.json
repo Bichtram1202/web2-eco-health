@@ -1,38 +1,39 @@
 [
   {
-    "context": ["/customers", "/customer", "biscottis", "items"],
+    "context": [
+      "/customers",
+      "/customer",
+      "/biscottis",
+      "/items",
+      "/products",
+      "/product",
+      "/promotions"
+    ],
     "target": "http://localhost:3002",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
-  }
-  ,
+  },
   {
-    "context":["/biscottis"],
+    "context": ["/biscottis"],
+    "target": "http://localhost:3002",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  {
+    "context": ["/products"],
+    "target": "http://localhost:3002",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+
+  {
+    "context":["/sanpham"],
     "target":"http://localhost:3002",
     "secure":true,
     "changeOrigin":true,
     "logLevel":"debug"
-  },
-  {
-    "context": ["/cart"],
-    "target": "http://localhost:3002",
-    "secure": true,
-    "changeOrigin":true,
-    "logLevel":"debug"
-   },
-   {
-    "context": ["/checkout"],
-    "target": "http://localhost:3002",
-    "secure": true,
-    "changeOrigin":true,
-    "logLevel":"debug"
-   },
-  {
-    "context": ["/orders"],
-    "target": "http://localhost:3002",
-    "secure": true,
-    "changeOrigin":true,
-    "logLevel":"debug"
-   }
+  }
 ]

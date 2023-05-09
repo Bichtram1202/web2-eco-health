@@ -4,7 +4,8 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from './product';
+// import { Product } from './product';
+import { Product } from './Product';
 import { Observable, map, retry, catchError, throwError } from 'rxjs';
 import { Order } from './order';
 

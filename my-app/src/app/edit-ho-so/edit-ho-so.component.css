@@ -1,0 +1,36 @@
+.form-group-btn, .form-group-hoten{
+padding-right: 100px;
+  display: flex;
+}
+.hoten{
+  margin-right: 50px;
+}
+.btn-primary{
+
+  width: 100px;
+  color: rgb(9, 133, 9);
+border-radius: 5px;
+border-color: rgb(28, 191, 28);
+margin-right: 50px;
+background-color: rgb(255, 250, 244);
+}
+.btn-primary:hover{
+background-color: rgb(7, 157, 7);
+color: aliceblue;
+border-color:  rgb(28, 191, 28);
+}
+.form-group-diachi
+{
+  display: flex;
+
+}
+#diachi{
+  margin-right: 50px;
+}
+select{
+  border-radius: 10px;
+  height: 28px;
+  text-align: center;
+  width: 100px;
+}
+
