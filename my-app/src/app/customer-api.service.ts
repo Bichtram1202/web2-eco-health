@@ -42,7 +42,7 @@ export class CustomerApiService {
       catchError(this.handleError)
     );
   }
-  putCustomer(aCustomer: any): Observable<any> {
+  putCustomer(aCustomer: any, id: any): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'application/json;charset=utf-8'
@@ -54,7 +54,7 @@ export class CustomerApiService {
     return this._http
       .put<any>('/customer', JSON.stringify(aCustomer), requestOptions)
       .pipe(
-        map((res) => JSON.parse(res) as Customer),
+        map((res) => res as Customer),
         retry(3),
         catchError(this.handleError)
       );

@@ -1,0 +1,32 @@
+body {
+  background-color: lightblue;
+
+  }
+.container{
+  font-family: roboto;
+align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+.tittle-doinet, .tittle-tamnhin,.tittle-sumenh, .tittle-doitac{
+  font-size: 30px;
+font-weight: bold;
+}
+.content-doinet,.content-tamnhin,.content-sumenh, .content-doitac{
+font-style: italic;
+font-size: 20px;
+}
+#hr{
+background-color: black;
+}
+.btn-lienhe{
+  margin-bottom: 20px;
+
+}
+.btn-lienhe button
+{
+  background-color: slategrey;
+  border-radius: 10px;
+  font-size: 18px;
+}

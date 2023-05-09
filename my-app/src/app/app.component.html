@@ -335,7 +335,17 @@
     }
   }
 </style>
-  <app-homepage></app-homepage>
- <!-- <app-login></app-login> -->
- <!-- <app-register></app-register> -->
+<router-outlet></router-outlet>
+<td> <a [routerLink]="'customers'">customer</a></td>
+<td> <a [routerLink]="'page-menu'">page menu</a></td>
+<td> <a [routerLink]="'products'">product</a></td>
+<td> <a [routerLink]="'ve-chung-toi'">vechungtoi</a></td>
+<td> <a [routerLink]="'edit-ho-so'">hoso</a></td>
+
+<td><a [routerLink]="'adminproducts'">Products</a></td>
+<td><a [routerLink]="'admin-promtion'">promotion</a></td>
+ <app-header></app-header> 
+<app-login></app-login>
+<app-register></app-register>
+
 <router-outlet></router-outlet>

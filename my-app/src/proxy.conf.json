@@ -1,9 +1,33 @@
 [
   {
-    "context": ["/customers", "/customer", "biscottis", "items","/products","users","login"],
+    "context": [
+      "/customers",
+      "/customer",
+      "/biscottis",
+      "/items",
+      "/products",
+      "/product",
+      "/promotions"
+    ],
     "target": "http://localhost:3002",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
+  },
+  {
+    "context": ["/biscottis"],
+    "target": "http://localhost:3002",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+
+  {
+    "context":["/sanpham"],
+    "target":"http://localhost:3002",
+    "secure":true,
+    "changeOrigin":true,
+    "logLevel":"debug"
   }
+
 ]

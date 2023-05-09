@@ -1,0 +1,59 @@
+<div class="py-6 px-9">
+  <div class="customer-group">
+    <h3>Khách hàng</h3>
+    <p>Xin chào, Hồng Ngọc! Mừng bạn quay trở lại Admin Web</p>
+  </div>
+  <table mat-table class="tablecustomer w-full mt-5">
+    <tr class="text-[#B5B7C0]">
+      <td>Tên sản phẩm</td>
+      <td>Loại</td>
+      <td>Số lượng</td>
+      <td>Mã sản phẩm</td>
+      <td>Giá</td>
+    </tr>
+    <tbody class="font-medium">
+      <tr
+        *ngFor="
+          let pr of products | paginate : { itemsPerPage: 10, currentPage: p }
+        "
+      >
+        <td>
+          <div class="flex items-center">
+            <img
+              class="w-10"
+              src="../../assets/images/{{ pr.img_url }}"
+              alt=""
+            />
+            <p class="mb-0 ml-2">{{ pr.name }}</p>
+          </div>
+        </td>
+        <td>{{ productType[pr.type] }}</td>
+        <td>{{ pr.sold }}</td>
+        <td>{{ pr.id }}</td>
+        <td>{{ pr.price }}</td>
+        <td>
+          <a routerLink="/product/{{ pr._id }}"
+            ><img
+              src="../../assets/icon-detail.png"
+              width="50px"
+              height="50px"
+              alt=""
+          /></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="flex justify-end mt-6">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <div class="padding-10-40 float-right">
+    <a routerLink="/product/create">
+      <button
+        class="background-green rounded w-20 py-2 font-bold"
+        type="button"
+      >
+        Thêm mới
+      </button>
+    </a>
+  </div>
+</div>

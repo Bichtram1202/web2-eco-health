@@ -1,8 +1,3 @@
-.tablecustomer th,
-td {
-  border-bottom: 1px solid #ddd;
-  padding: 15px;
-}
 .tablecustomer tr:hover {
   background-color: rgb(163 207 108);
 }
@@ -19,4 +14,31 @@ td {
 .group {
   display: flex;
   padding: 30px;
+}
+.input-customerdetail {
+  width: 80%;
+  padding: 8px;
+  border: none;
+}
+.customer-group {
+  margin: 10px 10px 30px 60px;
+}
+.label-customerdetail {
+  max-width: 250px;
+  padding: 0px 80px 5px 0px;
+  font-weight: 600;
+}
+
+.group-button {
+  display: flex;
+  justify-content: center;
+}
+.padding-10-40 {
+  padding: 10px 40px 10px 0px;
+}
+.background-green {
+  background-color: rgba(156, 205, 98, 1);
+}
+.background-gray {
+  background-color: rgba(196, 196, 196, 1);
 }

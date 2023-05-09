@@ -8,23 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'my-app';
-  images = [
-    {
-      imageSrc: '../../assets/slideshow.jpg',
-      imageAlt: 'nature1',
-    },
-    {
-      imageSrc: '../../assets/slideshow2.jpg',
-      imageAlt: 'nature2',
-    },
-    {
-      imageSrc: '../../assets/slideshow3.jpg',
-      imageAlt: 'nature3',
-    },
-  ];
+  customers: any;
+  adminproducts: any;
+  images: any;
+   title = 'my-app';
+  //  images = [
+  //    {
+  //   imageSrc: '../../assets/slideshow.jpg',
+  //     imageAlt: 'nature1',
+  //   },
+  //   {
+  //     imageSrc: '../../assets/slideshow2.jpg',
+  //     imageAlt: 'nature2',
+  //   },
+  // {
+  //   imageSrc: '../../assets/slideshow3.jpg',
+  //     imageAlt: 'nature3',
+  //   },
+  // ];
 
-  constructor(private _router: Router) {}
+   constructor(private _router: Router) {}
 
   openListProduct() {
     this._router.navigate(['list.product']);
@@ -34,4 +37,10 @@ export class AppComponent {
   }
  
   
+  // openListProduct() {
+  //   this._router.navigate(['list.product']);
+  // }
+  // onSubmit() {
+  //   this._router.navigateByUrl;
+  // }
 }

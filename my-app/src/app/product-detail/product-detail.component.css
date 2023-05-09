@@ -1,0 +1,205 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 20px;
+}
+#col1 {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+ td, th {
+
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+
+ul, li {
+  list-style: none;
+}
+
+#add-to-cart-button{
+  padding-left: 3px;
+  padding-right: 3px;
+  display:inline-flex;
+  margin-top: 15px;
+
+  }
+  #add-to-cart-button-left {
+
+    border-radius: 8px;
+    border-style:hidden;
+    font-size: 16px;
+    background-color:#77b153 ;
+  margin-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  }
+  .add-to-cart-button-left a:link, a:visited{
+    padding: 3px 3px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+  }
+  .add-to-cart-button-right, .add-to-cart-button-left{
+    height: 33px;
+  }
+  .add-to-cart-button-left a:hover, a:active
+  {
+    color: rgb(4, 5, 5);
+
+  }
+
+  #add-to-cart-button-right{
+    border-radius: 8px;
+    border-style:hidden;
+    background-color:#ACACAC ;
+    font-size: 16px;
+    padding-left: 3px;
+    margin-left: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .add-to-cart-button-right a:link, a:visited{
+    padding: 3px 3px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+
+
+  }
+  .add-to-cart-button-right a:hover, a:active
+  {
+    color: rgb(18, 188, 89);
+
+  }
+.danh-gia{
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden; /* hoặc scroll/auto */
+  white-space: nowrap; /* ngăn cách bởi khoảng trắng, trống trơn không xuống dòng */
+  text-overflow: ellipsis; /* hiển thị ellipsis (ba chấm) nếu văn bản hiển thị không đủ */
+}
+ .luotdanhgia, .daban {
+
+  border-left: 1px solid rgb(94, 91, 91);
+}
+.danhgiasao, .luotdanhgia, .daban {
+  width: 30%;
+  height: 26px;
+  text-align: center;
+
+}
+.danhgiasao{
+  padding-right: 10px;
+}
+.title, .sao{
+  margin-right: 10px;
+}
+.danhgiasao{
+  display: flex;
+  padding-left: 5px;
+}
+.sao{
+  padding-bottom: 5px;
+  height: 26px;
+}
+.sao img{
+  width:18px;
+  height: 18px;
+
+
+}
+
+.soluong{
+  display: flex;
+  justify-content: space-between;
+
+}
+.soluong p{
+  width: 100px;
+  height: 25px;
+}
+.soluong input{
+  width: 24px;
+  text-align: center;
+  border: none;
+
+}
+.soluong button{
+  border-radius: 6px;
+  background-color: black;
+  color: aliceblue;
+
+
+}
+.my-hr{
+  background-color: #3f8911;
+  color: #3f8911;
+  border:#3f8911;
+  height: 3px;
+  border-top:3px solid #3f8911 ;
+
+}
+.my-hr:hover {
+  background-color: #000; /* thay đổi màu khi hover chuột */
+  height: 2px; /* thay đổi chiều cao */
+}
+.motasp p{
+  font-family: roboto;
+    font-style: inherit ;
+}
+h3{
+  font-family: roboto;
+  text-align: left;
+font-weight: bold;
+}
+.container-chitietsp{
+  padding-left: 50px;
+padding-right: 50px;
+
+}
+hr{
+  background-color: black;
+}
+#khachhangdanhgia{
+border: #77b153 3px;
+}
+.qtv{
+  margin-left: 90px;
+}
+#content-danhgia
+{
+  background-color: #F5F5F5;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+}
+#ngaydanhgia{
+
+
+}
+.left {
+  float: left;
+  width: 80%;
+}
+
+.right {
+  float: right;
+  width: 20%;
+}
+@media screen and (max-width: 768px) {
+  .chitiet1,  .chitiet2, .chitiet3{
+    width: 50%; /* 1/2 chiều rộng của container */
+  }
+  .danhgiasao, .luotdanhgia, .daban{
+    width: 100%;
+  }
+}
+.container-chitietsp{
+  font-family: Tahoma, Verdana, sans-serif;
+}
