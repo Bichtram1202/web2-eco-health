@@ -13,15 +13,15 @@ export class PageMenuComponent {
   title = 'my-app';
   images = [
     {
-      imageSrc: '../../assets/slideshow.jpg',
+      imageSrc: '../../assets/bia_img/bia1.png',
       imageAlt: 'nature1',
     },
     {
-      imageSrc: '../../assets/slideshow2.jpg',
+      imageSrc: '../../assets/bia_img/bia2.png',
       imageAlt: 'nature2',
     },
     {
-      imageSrc: '../../assets/slideshow3.jpg',
+      imageSrc: '../../assets/bia_img/bia3.png',
       imageAlt: 'nature3',
     },
   ];

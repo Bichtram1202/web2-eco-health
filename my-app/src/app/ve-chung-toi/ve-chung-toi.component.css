@@ -30,3 +30,14 @@ background-color: black;
   border-radius: 10px;
   font-size: 18px;
 }
+.img-vechungtoi{
+  display: flex;
+}
+.tags{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+span{
+margin-right: 10px;
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "Bi01",
+    "img_url": "/biscotti vani.jpg",
+    "name": "Biscotti Vani",
+    "icon1_url": "/đã bán.png",
+    "sold": "180",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.8",
+    "price": 110000
+  },
+  {
+    "id": "Gr02",
+    "img_url": "/granola matcha.jpg",
+    "name": "Granola Matcha",
+    "icon1_url": "/đã bán.png",
+    "sold": "210",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.8",
+    "price": 130000
+  },
+  {
+    "id": "H-05",
+    "img_url": "/H-05_2.jpg",
+    "name": "Hạt Mix (4 loại)",
+    "icon1_url": "/đã bán.png",
+    "sold": "159",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.9",
+    "price": 60000
+  },
+  {
+    "id": "H-02",
+    "img_url": "/H-02_1.jpg",
+    "name": "Hạt điều sấy",
+    "icon1_url": "/đã bán.png",
+    "sold": "210",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.8",
+    "price": 60000
+  },
+  {
+    "id": "B-02",
+    "img_url": "/B-02_1.jpg",
+    "name": "Bơ đậu phộng ăn kiêng",
+    "icon1_url": "/đã bán.png",
+    "sold": "230",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.6",
+    "price": 110000
+  },
+  {
+    "id": "B-03",
+    "img_url": "/B-03_2.png",
+    "name": "Bơ hạnh nhân ăn kiêng",
+    "icon1_url": "/đã bán.png",
+    "sold": "140",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.7",
+    "price": 110000
+  },
+  {
+    "id": "H-03",
+    "img_url": "/H-03_2.jpg",
+    "name": "Hạt óc chó sấy",
+    "icon1_url": "/đã bán.png",
+    "sold": "140",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.7",
+    "price": 60000
+  },
+  {
+    "id": "H-04",
+    "img_url": "/H-04_2.jpg",
+    "name": "Hạt bí xanh rang",
+    "icon1_url": "/đã bán.png",
+    "sold": "159",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.8",
+    "price": 60000
+  },
+  {
+    "id": "Gr05",
+    "img_url": "/granola vi mat ong.jpg",
+    "name": "Granola vị mật ong",
+    "icon1_url": "/đã bán.png",
+    "sold": "137",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.5",
+    "price": 130000
+  },
+  {
+    "id": "H-07",
+    "img_url": "/H-07_2.jpg",
+    "name": "Hạt ngũ cốc yến mạch",
+    "icon1_url": "/đã bán.png",
+    "sold": "82",
+    "icon2_url": "/ngôi sao.png",
+    "star": "4.6",
+    "price": 90000
+  }
+]

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from  '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +27,9 @@ import { OrdersuccessComponent } from './ordersuccess/ordersuccess.component';
 import { UserComponent } from './user/user.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { CartComponent } from './cart/cart.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { TintucDetailComponent } from './tintuc-detail/tintuc-detail.component';
+
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
 
@@ -40,11 +43,11 @@ import { VeChungToiComponent } from './ve-chung-toi/ve-chung-toi.component';
 import { MorelessComponent } from './moreless/moreless.component';
 import { ProductListLoadMoreComponent } from './product-list-load-more/product-list-load-more.component';
 import { EditHoSoComponent } from './edit-ho-so/edit-ho-so.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import{CarouselModule} from'ngx-owl-carousel-o';
 import { AdminPromotionComponent } from './admin-promotion/admin-promotion.component';
 
 @NgModule({
-  declarations: [
+   declarations: [
     AppComponent,
     RoutingComponent,
     CustomerComponent,
@@ -63,6 +66,8 @@ import { AdminPromotionComponent } from './admin-promotion/admin-promotion.compo
     UserComponent,
     OrderdetailComponent,
     CartComponent,
+    HomepageComponent,
+    TintucDetailComponent,
     AdminProductsComponent,
     AdminProductDetailComponent,
     HomeComponent,

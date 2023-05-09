@@ -14,15 +14,15 @@ export class VeChungToiComponent {
   }
   images = [
     {
-      imageSrc: '../../assets/slideshow.jpg',
+      imageSrc: '../../assets/lienhe_img/wireframe (7) 1.png',
       imageAlt: 'nature1',
     },
     {
-      imageSrc: '../../assets/slideshow2.jpg',
+      imageSrc: '../../assets/lienhe_img/wireframe (7) 1.png',
       imageAlt: 'nature2',
     },
     {
-      imageSrc: '../../assets/slideshow3.jpg',
+      imageSrc: '../../assets/lienhe_img/wireframe (7) 1.png',
       imageAlt: 'nature3',
     },
   ];

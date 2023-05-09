@@ -107,11 +107,13 @@ ul, li {
 .sao{
   padding-bottom: 5px;
   height: 26px;
+  display: flex;
+  margin-left:8px
 }
 .sao img{
   width:18px;
   height: 18px;
-
+margin-top: 5px;
 
 }
 
@@ -179,10 +181,7 @@ border: #77b153 3px;
   border-radius: 10px;
   padding: 10px;
 }
-#ngaydanhgia{
 
-
-}
 .left {
   float: left;
   width: 80%;

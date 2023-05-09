@@ -54,10 +54,7 @@ font-family: inherit;
 
 
 }
-.box-image-biscotti{
 
-
-}
 .title-image-biscotti{
   margin-top: 10px;
 }
@@ -122,4 +119,12 @@ padding-bottom: 5px;
 {
   color: rgb(18, 188, 89);
 
+}
+.nav-item{
+  font-size: 21px;
+  font-weight: bold;
+background-color: #77b1535c;
+margin-right: 20px;
+margin-top: 20px;
+border-radius: 5px;
 }
