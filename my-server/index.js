@@ -22,6 +22,34 @@ app.get("/", (_req, res) => {
 app.listen(port, () => {
   console.log(`My Server listening on port ${port}`);
 });
+
+let promotionData = [
+  {
+    Id: "1",
+    PromotionName: "Summer is comming",
+    Used: 12,
+    Describe:
+      "Chào mừng mùa hè, EcoHeal mang đến cho các bạn chương trình MÙA HÈ với một số ưu đãi cực kỳ hấp dẫn",
+    Start: "01/06/2023",
+    End: "01/07/2023",
+    ProductType: "biscotti",
+    Customer: "Tất cả",
+  },
+];
+
+app.get("/promotions", cors(), (_req, res) => {
+  res.send(promotionData);
+  console.log("database: ", promotionData);
+});
+app.put("/promotions", cors(), (_req, res) => {
+  promotion = promotionData.find((x) => x.Id == _req.body.Id);
+  if (promotion != null) {
+    promotion.Start = _req.body.Start;
+    promotion.End = _req.body.End;
+    promotion.ProductType = _req.body.ProductType;
+  }
+  res.send(promotionData);
+});
 const { MongoClient, ObjectId } = require("mongodb");
 client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
