@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
@@ -7,14 +6,13 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-// import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
@@ -43,6 +41,8 @@ import { MorelessComponent } from './moreless/moreless.component';
 import { ProductListLoadMoreComponent } from './product-list-load-more/product-list-load-more.component';
 import { EditHoSoComponent } from './edit-ho-so/edit-ho-so.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { AdminPromotionComponent } from './admin-promotion/admin-promotion.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +74,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     VeChungToiComponent,
     MorelessComponent,
     ProductListLoadMoreComponent,
-    EditHoSoComponent
+    EditHoSoComponent,
+    AdminPromotionComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +89,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     Ng2OrderModule,
     CarouselModule,
     NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -26,8 +26,10 @@ app.listen(port, () => {
 app.get("/", (_req, res) => {
   res.send("Hello Restful API")
 });
-
-const { MongoClient, ObjectId } = require('mongodb');
+app.listen(port, () => {
+  console.log(`My Server listening on port ${port}`);
+});
+const { MongoClient, ObjectId } = require("mongodb");
 client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 database = client.db("EcohealData");
