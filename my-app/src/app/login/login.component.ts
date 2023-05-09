@@ -22,7 +22,7 @@ export class LoginComponent {
     if(this.registerForm.invalid){
       return
     }
-    alert("Success")
+    alert("Bạn đã đăng nhập thành công")
   }
 }
 

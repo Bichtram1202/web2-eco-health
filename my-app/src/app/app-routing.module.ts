@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -12,10 +12,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { TinTucComponent } from './tin-tuc/tin-tuc.component';
 import { TintucDetailComponent } from './tintuc-detail/tintuc-detail.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
-  {path:'homepage',component:HomepageComponent},
+  // {path:'',component:HomepageComponent},
+  { path: '', redirectTo: '/HomepageComponent', pathMatch: 'full' },
+  {path:'hompage',component:HomepageComponent},
   { path: 'customers', component: CustomerComponent },
   { path: 'customer/:id', component: CustomerDetailComponent },
   { path: 'carousel', component: CarouselComponent },
@@ -25,6 +28,7 @@ const routes: Routes = [
   { path: 'biscotti', component: BiscottiComponent },
   { path: 'cart', component: CartComponent },
   {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
   {path:'tintuc',component:TinTucComponent},
   {path:'tintuc-detail',component:TintucDetailComponent}
 ];
@@ -34,7 +38,10 @@ const routes: Routes = [
   exports: [RouterModule],
 
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+ 
+  
+}
 export const RoutingComponent = [
   HomepageComponent,
   CustomerComponent,
@@ -46,6 +53,7 @@ export const RoutingComponent = [
   BiscottiComponent,
   LoginComponent,
   TinTucComponent,
-  TintucDetailComponent
+  TintucDetailComponent,
+  RegisterComponent
   
 ];
