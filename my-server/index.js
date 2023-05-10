@@ -62,6 +62,12 @@ app.get("/producttypical", cors(), async (_req, res) => {
   }).toArray();
   res.send(result);
 });
+app.get("/producttypical/:id",cors(),async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await producttypicalCollection.find({_id:o_id}).toArray(); //có 2 cái (_id và id) muốn lấy cái nào thì đổi lại ở dòng này
+  res.send(result[0]);
+});
+
 
 //CUTSOMER
 app.get("/customers", cors(), async (_req, res) => {
@@ -177,13 +183,6 @@ app.post("/login",cors(),async(req,res)=>{
                 "message":"wrong password"})
   }
 })
-
-
-
-
-
-
-
 
 
 
@@ -311,24 +310,7 @@ app.post("/tintucsongkhoe", cors(), async (req, res) => {
 });
 
 
- app.put("/product", cors(), async (req, res) => {
-  await productsCollection.updateOne(
-   { _id: new ObjectId(req.body._id) },
-   {
-      $set: {
-        name: req.body.name,
-        type: req.body.type,
-        describe: req.body.describe,
-        price: req.body.price,
-        sold: req.body.sold,
-         img_url: req.body.img_url,
-       },
-    }
-  );
-   var o_id = new ObjectId(req.body._id);
-   const result = await productsCollection.find({ _id: o_id }).toArray();
-  res.send(result[0]);
- });
+
 app.delete("/tintucsongkhoe/:id", cors(), async (req, res) => {
   var o_id = new ObjectId(req.params["id"]);
   const result = await tintucsongkhoeCollection.find({ _id: o_id }).toArray();
@@ -338,3 +320,8 @@ app.delete("/tintucsongkhoe/:id", cors(), async (req, res) => {
 
 
 
+app.get("/producttypical/:id",cors(),async (req, res) => {
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await producttypicalCollection.find({_id: o_id}).toArray(); //có 2 cái (_id và id) muốn lấy cái nào thì đổi lại ở dòng này
+  res.send(result[0]);
+});

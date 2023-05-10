@@ -1,4 +1,8 @@
 export class ProductTypical{
+  slice(startIndex: number, lastIndex: number): any[] {
+    throw new Error('Method not implemented.');
+  }
+
     constructor(
       public _id:any=null,
       public id:string="",

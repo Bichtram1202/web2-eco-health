@@ -9,14 +9,14 @@ import { ProductTypical} from './typicalproduct';
 })
 export class TypicalAPIService {
   constructor(private _http: HttpClient) { }
-  getProductTypical():Observable<any>
+  getProductTypicals():Observable<any>
   {
     const headers=new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8");
     const requestOptions:Object={
       headers:headers,
       responseType:"text",
     };
-    return this._http.get<any>("/producttypical",requestOptions).pipe(
+    return this._http.get<any>('/producttypical',requestOptions).pipe(
       map(res=>JSON.parse(res) as Array<ProductTypical>),
     retry(3),
     catchError(this.handleError))
@@ -25,4 +25,19 @@ export class TypicalAPIService {
     console.log('handleError',error);
     return throwError(()=> new Error(error.message))
   }
+  getProductTypical(id: string): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Content-Type',
+      'text/plain;charset=utf-8'
+    );
+    const requestOptions: Object = {
+      headers: headers,
+      responseType: 'text',
+    };
+    return this._http.get<any>("/producttypical"+ id, requestOptions).pipe(
+      map((res) => JSON.parse(res) as ProductTypical),
+      retry(3),
+      catchError(this.handleError)
+    );
+}
 }

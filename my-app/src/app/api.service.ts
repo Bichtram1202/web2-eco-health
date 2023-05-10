@@ -13,6 +13,9 @@ import { Order } from './order';
   providedIn: 'root',
 })
 export class APIService {
+  getProductTypical() {
+    throw new Error('Method not implemented.');
+  }
   constructor(private _http: HttpClient) {}
   getCarts(): Observable<any> {
     const headers = new HttpHeaders().set(

@@ -22,12 +22,12 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private router: Router, public _service: APIService) {}
   ngOnInit(): void {
+    //Chưa đăng nhập thì ko thanh toán được
     if (sessionStorage.getItem('usertype') == null) {
-      // Tam thoi chua co login thi comment chu khong no khong reload dc
-      // this.router.navigate([`/login`]);
+      this.router.navigate([`/login`]);
     }
     if (sessionStorage.getItem('usertype') != 'user') {
-      // this.router.navigate([`/login`]);
+      this.router.navigate([`/login`]);
     }
 
     this.bind();
@@ -90,7 +90,7 @@ export class CheckoutComponent implements OnInit {
     console.log(form);
     // Logic: ham subcribe trong phan next neu co (tuc la khong co error) tu server thi tien hanh chuyen sang trang orderSuccess
     setTimeout(() => {
-      this.router.navigate(["ordersuccess"]);
+      this.router.navigate(["/ordersuccess"]);
       // Sau 2 giay chuyen trang
     },2000)
 

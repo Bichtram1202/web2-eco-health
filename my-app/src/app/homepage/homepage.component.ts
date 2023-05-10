@@ -10,7 +10,7 @@ export class HomepageComponent  {
   products:any;
   errMessage:string='';
   constructor(public _service:TypicalAPIService){
-    this._service.getProductTypical().subscribe({
+    this._service. getProductTypicals().subscribe({
       next:(data)=>{this.products=data},
       error:(err)=>{this.errMessage=err}
     })

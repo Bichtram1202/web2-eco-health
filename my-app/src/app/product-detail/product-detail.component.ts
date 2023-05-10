@@ -5,6 +5,7 @@ import { Product } from '../Product';
 import swal from 'sweetalert/typings/core';
 import Swal from 'sweetalert2';
 import { APIService } from '../api.service';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -15,7 +16,8 @@ export class ProductDetailComponent implements OnInit {
   cartcount = 0;
 
   id: any;
-  product = new Product();
+
+  product:any = new Product();
   quantity: number = 1;
   p: number = 1;
   currentPage = 1; // trang hiện tại
@@ -26,6 +28,7 @@ export class ProductDetailComponent implements OnInit {
   loadMore: number = 5;
   productsToLoadMore: any;
   carts: any;
+
   constructor(
     private _service: ProductAPIService,
     private activateRoute: ActivatedRoute,
@@ -53,44 +56,49 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  addQuantity(biscotti:any) {
-    biscotti.quantity += 1;
+  addQuantity(product:any) {
+    product.quantity += 1;
   }
 
-  reduceQuantity(biscotti:any) {
-    if (biscotti.quantity > 1) biscotti.quantity -= 1;
+  reduceQuantity(product:any) {
+    if (product.quantity > 1) product.quantity -= 1;
+  }
+  increaseQuantity() {
+    this.quantity++;
   }
 
-  onAddToCart(product: any) {
-    let idx = this.carts.findIndex((item: any) => {
-      return item.id == product.id;
-    });
-
-    if (idx >= 0) {
-      this.carts[idx].quantity += 1;
-    } else {
-      let cartItem: any = {
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-        subtotal: function () {
-          return this.price * this.quantity;
-        },
-      };
-
-      this.carts.push(cartItem);
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
     }
-
-    //lưu vào storage
-    this._apiservice.saveCart(this.carts);
-    Swal.fire({
-      title: 'Thêm vào giỏ hàng thành công',
-      icon: 'success',
-    });
-    console.log(this.carts);
   }
-  biscottis: any;
+
+  onAddToCart(product:any) {
+  let Product = {
+    id: product.id,
+    name: product.name,
+    image: product.img_url,
+    quantity: product.quantity,
+    price: product.price,
+  };
+  let products = new Array();
+  if (sessionStorage.getItem('products') != null) {
+    products = JSON.parse(sessionStorage.getItem('products') || '[]');
+  }
+products.push(product);
+  sessionStorage.setItem('products', JSON.stringify(products));
+  Swal.fire({
+    title: "Thông báo",
+    text: "Thêm sản phẩm vào giỏ hàng thành công",
+    icon: "success",
+    confirmButtonText: "OK"
+  });
+
+  let span = document.getElementById('spnCount');
+  if (span != null) span.innerText = products.length.toString();
+}
+
+
 
   getProduct(id: any) {
     this._service.getProduct(id).subscribe((res) => {

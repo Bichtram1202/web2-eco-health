@@ -1,11 +1,11 @@
 <app-carousel [images]="images"></app-carousel>
 <hr color="black">
 <!-- <a routerLink="/cart">Cart [<span id="spnCount">{{cartcount}}</span>]</a> -->
-<a routerLink="/cart">Cart [<span id="spnCount"></span>]</a>
+
 
 <!-- gắn vào icon giỏ hàng -->
 <h2>SẢN PHẨM BÁN CHẠY</h2>
-<!-- <app-home></app-home> -->
+<app-home></app-home>
 <!-- <app-product-list></app-product-list> -->
 <router-outlet></router-outlet>
 <ul class="nav justify-content-center">
@@ -42,6 +42,7 @@
         <div class="title-image-biscotti" routerLink="/products/{{product._id}}" >
           {{product.name}}
         </div>
+     
         <div class="price-biscotti" >
 
                 <button id="price-biscotti" routerLink="/products/{{product._id}}">{{product.price}}<span>VND</span>
@@ -51,14 +52,14 @@
 
         <div class="add-to-cart-button" id="add-to-cart-button">
           <div class="add-to-cart-button-left">
-          <button class="add-to-cart-button-left" id="add-to-cart-button-left" style="cursor: pointer;">
-            <a href="" data-quantity="1" class="" rel="nofollow">
+          <button (click)="checkOut()" class="add-to-cart-button-left" id="add-to-cart-button-left" style="cursor: pointer;">Mua ngay
+            <!-- <a (click)="checkOut()" data-quantity="1" class="" rel="nofollow">
               Mua ngay
-            </a>
+            </a> -->
             </button>
           </div>
           <div class="add-to-cart-button-right">
-          <button class="add-to-cart-button-right" id="add-to-cart-button-right" style="cursor: pointer;">
+          <button  class="add-to-cart-button-right" id="add-to-cart-button-right" style="cursor: pointer;">
           <a href="" data-quantity="1" class="" rel="nofollow">
             Thêm vào giỏ hàng
           </a>
@@ -73,3 +74,4 @@
 </div>
 
 
+<app-footer></app-footer>

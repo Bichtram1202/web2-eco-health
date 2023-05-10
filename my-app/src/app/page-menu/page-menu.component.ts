@@ -9,6 +9,10 @@ import { ProductAPIService } from '../product-api.service';
 })
 export class PageMenuComponent {
   biscottis: any;
+
+
+
+//thử
   // cartcount = 0;
   title = 'my-app';
   images = [
@@ -28,6 +32,7 @@ export class PageMenuComponent {
 
   ngOnInit(): void {
     this.getProductList();
+
   }
   getProductList() {
 
@@ -38,6 +43,30 @@ export class PageMenuComponent {
   onSubmit() {
     this._router.navigateByUrl;
   }
+// --thử
+//thử
+
+subtotal = 0;
+delivery = 0;
+grandtotal = 0;
+quantity = 1;
+bind() {
+  this.products = JSON.parse(sessionStorage.getItem('products') || '[]');
+  console.log(this.products);
+  this.subtotal = 0;
+  this.grandtotal = 0;
+  this.delivery = 0;
+  this.subtotal = this.products.price * this.quantity;
+  this.grandtotal = this.subtotal + this.delivery;
+}
+checkOut() {
+  this._router.navigate(["checkout"]);
+}
+
+
+  //--thử
+
+
 
   // ngOnInit(): void{
   //   if(sessionStorage.getItem("products") != null){
@@ -57,7 +86,10 @@ export class PageMenuComponent {
         error:(err)=>{this.errMessage=err}
       })
   });
+
+
 }
+
 
 
 }

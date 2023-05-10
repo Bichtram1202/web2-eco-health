@@ -25,6 +25,10 @@ import { EditHoSoComponent } from './edit-ho-so/edit-ho-so.component';
 import { AdminPromotionComponent } from './admin-promotion/admin-promotion.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrdersuccessComponent } from './ordersuccess/ordersuccess.component';
+import { ProductTypicalDetailComponent } from './product-typical-detail/product-typical-detail.component';
+
 
 
 const routes: Routes = [
@@ -41,12 +45,15 @@ const routes: Routes = [
    {path: 'page-menu', component: PageMenuComponent},
    {path: 'products', component: ProductListComponent},
    {path: 'products/:id', component: ProductDetailComponent},
+   {path: 'checkout', component: CheckoutComponent},
+   {path: 'ordersuccess', component: OrdersuccessComponent},
+   {path: 'login', component:LoginComponent},
 
    {path:'loai/:id',component: SanPhamTheoLoaiComponent},
    {path:'cac-loai', component: CacLoaiComponent},
    {path:'ve-chung-toi', component: VeChungToiComponent},
    {path:'edit-ho-so', component: EditHoSoComponent},
-
+ {path:'Homepage', component:HomepageComponent},
 
   { path: 'page-menu', component: PageMenuComponent },
   { path: 'product-list', component: ProductListComponent },
@@ -54,7 +61,10 @@ const routes: Routes = [
   { path: 'cac-loai', component: CacLoaiComponent },
   { path: 'admin-promtion', component: AdminPromotionComponent },
   { path: 'header', component: HeaderComponent},
-  { path: 'user', component:UserComponent }
+  { path: 'user', component:UserComponent },
+  {path: 'producttypical/:id' , component: ProductTypicalDetailComponent},
+  {path: 'tintuc', component:TinTucComponent},
+  {path: 'tintuc-detail', component:TintucDetailComponent},
 ];
 
 @NgModule({
@@ -91,4 +101,8 @@ export const RoutingComponent = [
   AdminPromotionComponent,
   HeaderComponent,
   UserComponent,
+  HomepageComponent,
+  CheckoutComponent,
+  OrdersuccessComponent,
+  ProductTypicalDetailComponent
 ];
